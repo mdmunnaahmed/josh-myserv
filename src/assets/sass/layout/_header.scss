@@ -1,0 +1,12 @@
+.header-section {
+  padding-block: 10px;
+  background-color: var(--bg-white);
+}
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .menu-title {
+    margin-bottom: 0;
+  }
+}

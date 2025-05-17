@@ -9,6 +9,7 @@ body {
   font-size: var(--fs-body);
   color: var(--c-body);
   line-height: var(--lh-body);
+  letter-spacing: 0.2px;
 }
 a {
   text-decoration: none;
@@ -91,20 +92,14 @@ h6 > a {
   }
 }
 h1 {
-  font-size: var(--fs-heading-one);
+  font-size: var(--fs-20);
 }
 h2 {
-  font-size: var(--fs-heading-two);
+  font-size: var(--fs-14);
 }
 h3 {
-  font-size: var(--fs-heading-three);
+  font-size: var(--fs-14);
 }
-h4 {
-  font-size: var(--fs-heading-four);
-}
-h5 {
-  font-size: var(--fs-heading-five);
-}
-h6 {
-  font-size: var(--fs-heading-six);
+.container {
+  --bs-gutter-x: 2rem;
 }

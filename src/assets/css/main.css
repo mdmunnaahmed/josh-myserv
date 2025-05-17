@@ -1,33 +1,29 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 :root {
-  --ff-heading: "Roboto", sans-serif;
-  --ff-body: "Roboto", sans-serif;
-  --lh-heading: 1.2;
-  --lh-body: 1.5;
+  --ff-heading: "Public Sans", sans-serif;
+  --ff-body: "Public Sans", sans-serif;
+  --lh-heading: 1.4;
+  --lh-body: 1.4;
   --fs-body: 16px;
-  --fs-heading-one: 60px;
-  --fs-heading-two: 48px;
-  --fs-heading-three: 30px;
-  --fs-heading-four: 24px;
-  --fs-heading-five: 20px;
-  --fs-heading-six: 18px;
-  --c-heading: #333333;
-  --c-body: #606065;
-  --c-base: #3fad0c;
-  --c-primary: #0a0c25;
+  --fs-20: 20px;
+  --fs-18: 18px;
+  --fs-14: 14px;
+  --c-heading: #212121;
+  --c-body: #616161;
+  --c-primary: #3259f3;
   --c-secondary: #8f9893;
-  --c-success: #1cb81c;
-  --c-danger: #de3434;
-  --c-warning: #ff701c;
-  --c-info: #7189ff;
-  --c-dark: #01111a;
   --c-white: #ffffff;
   --c-black: #000000;
+  --c-success: #14ad06;
+  --c-danger: #f02922;
+  --c-warning: #f46937;
+  --c-info: #7189ff;
+  --c-dark: #01111a;
   --border-default: #ebebeb;
   --border-light: #f0f0f0;
   --border-dark: #ccc;
-  --bg-default: #f1f1f1;
-  --bg-light: #f4f4f4;
+  --bg-light: #f5f5f5;
+  --bg-white: #ffffff;
 }
 
 html {
@@ -42,6 +38,7 @@ body {
   font-size: var(--fs-body);
   color: var(--c-body);
   line-height: var(--lh-body);
+  letter-spacing: 0.2px;
 }
 
 a {
@@ -109,8 +106,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
-  line-height: var(--lh-body);
+  font-weight: 600;
+  line-height: var(--lh-heading);
   font-family: var(--ff-heading);
   color: var(--c-heading);
 }
@@ -123,29 +120,29 @@ h5 > a,
 h6 > a {
   color: var(--c-heading);
 }
+h1 > a:hover,
+h2 > a:hover,
+h3 > a:hover,
+h4 > a:hover,
+h5 > a:hover,
+h6 > a:hover {
+  color: var(--c-primary);
+}
 
 h1 {
-  font-size: var(--fs-heading-one);
+  font-size: var(--fs-20);
 }
 
 h2 {
-  font-size: var(--fs-heading-two);
+  font-size: var(--fs-14);
 }
 
 h3 {
-  font-size: var(--fs-heading-three);
+  font-size: var(--fs-14);
 }
 
-h4 {
-  font-size: var(--fs-heading-four);
-}
-
-h5 {
-  font-size: var(--fs-heading-five);
-}
-
-h6 {
-  font-size: var(--fs-heading-six);
+.container {
+  --bs-gutter-x: 2rem;
 }
 
 @media (max-width: 1199px) {
@@ -177,4 +174,107 @@ h6 {
     --fs-heading-five: 18px;
     --fs-heading-six: 16px;
   }
+}
+.btn {
+  position: relative;
+}
+.btn.btn-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(155, 167, 127, 0.1215686275);
+  border-radius: 12px;
+}
+
+.float-badge {
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 0.85;
+  background-color: var(--c-warning);
+  border-radius: 50%;
+  color: var(--c-white);
+}
+
+.header-section {
+  padding-block: 10px;
+  background-color: var(--bg-white);
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-wrapper .menu-title {
+  margin-bottom: 0;
+}
+
+.footer-section {
+  padding-top: 8px;
+  padding-bottom: 4px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+}
+.footer-links li a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-bottom: 12px;
+}
+.footer-links li a::before {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 3px;
+  background-color: var(--c-primary);
+  border-radius: 5px 5px 3px 3px;
+  left: 50%;
+  bottom: 4px;
+  transform: translateX(-50%) scaleX(0);
+  transition: all 0.3s ease;
+}
+.footer-links li a.active::before {
+  transform: translateX(-50%) scaleX(1);
+}
+.footer-links li a.active span {
+  color: var(--c-primary);
+}
+.footer-links li a.active svg path {
+  fill: var(--c-primary);
+}
+.footer-links li a svg path {
+  fill: #919191;
+  transition: all 0.3s ease;
+}
+.footer-links li a span {
+  font-size: 10px;
+  margin-top: 2px;
+  transition: all 0.3s ease;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+.main-wrapper {
+  background-color: var(--bg-light);
+  flex: 1 1 auto;
+  overflow-y: auto;
 }

@@ -1,0 +1,10 @@
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+.main-wrapper {
+  background-color: var(--bg-light);
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
