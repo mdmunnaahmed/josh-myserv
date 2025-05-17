@@ -177,12 +177,18 @@ h3 {
 }
 .btn {
   position: relative;
+  line-height: 1;
   height: 36px;
   display: inline-flex;
+  align-items: center;
   justify-content: center;
   padding-inline: 12px;
   font-size: var(--fs-14);
   border-radius: 32px;
+  font-weight: 600;
+}
+.btn.btn-md {
+  height: 32px;
 }
 .btn.btn-white {
   background-color: var(--bg-white);
@@ -251,6 +257,11 @@ h3 {
 }
 .header-wrapper .menu-title {
   margin-bottom: 0;
+}
+.header-wrapper .menu-subtitle {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--c-primary);
 }
 
 .footer-section {
@@ -371,3 +382,66 @@ body {
   font-weight: 700;
   color: var(--c-heading);
 }
+
+/* payout page start */
+.payout-wrapper {
+  padding-top: 24px;
+}
+
+.payout-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+}
+.payout-header .table-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.payout-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.payout-single-item {
+  padding: 20px 14px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-white);
+}
+.payout-single-item .item-price {
+  color: var(--c-heading);
+  font-weight: 600;
+  font-size: var(--fs-14);
+}
+
+.additional-title {
+  margin-top: 32px;
+  margin-bottom: 24px;
+  font-size: var(--fs-14);
+}
+
+.additional-charges-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 16px 14px;
+  border-radius: 16px;
+  background-color: var(--bg-white);
+}
+.additional-charges-wrapper .charge-for {
+  font-size: var(--fs-14);
+}
+.additional-charges-wrapper .charge {
+  font-size: var(--fs-14);
+  color: var(--c-heading);
+  font-weight: 600;
+}
+
+/* payout page end */

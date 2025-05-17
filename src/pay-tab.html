@@ -27,7 +27,10 @@
       <button class="menu-toggler btn btn-icon">
         <img src="assets/images/icons/menu-01.svg" alt="menu toggle">
       </button>
-      <h1 class="menu-title">Menu & Order</h1>
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <h1 class="menu-title">Pay Tab</h1>
+        <span class="menu-subtitle">Group Order Code: A51C</span>
+      </div>
       <button class="menu-toggler btn btn-icon">
         <img src="assets/images/icons/shopping-cart-01.svg" alt="menu toggle">
         <span class="float-badge">2</span>
@@ -37,158 +40,46 @@
 </header>
 
 <main class="main-wrapper">
-  <div class="category-list-wrapper">
-    <ul class="category-list">
-      <li>
-        <button class="btn btn-primary">House Favorites</button>
-      </li>
-      <li>
-        <button class="btn btn-white">Drinks</button>
-      </li>
-      <li>
-        <button class="btn btn-white">Cocktails</button>
-      </li>
-      <li>
-        <button class="btn btn-white">Starters</button>
-      </li>
-      <li>
-        <button class="btn btn-white">Drinks</button>
-      </li>
-    </ul>
-  </div>
-
   <div class="container">
-    <div class="products-wrapper">
-      <div class="product-item">
-        <div class="product-item__thumb">
-          <img src="assets/images/thumbs/img1.png" alt="thumb">
+    <div class="payout-wrapper">
+      <div class="payout-header">
+        <div class="table-info">
+          <img src="assets/images/icons/restaurant-table.svg" alt="icon">
+          <span>Table 17 </span>
         </div>
-        <div class="product-item__content">
-          <h2 class="title"><a href="">Chicken Caesar Salad</a></h2>
+        <button class="btn btn-primary btn-md">$29.29</button>
+      </div>
+
+      <div class="payout-items">
+        <div class="payout-single-item">
+          <span class="item-name">Chicken Caesar Salad</span>
+          <span class="item-price">$10</span>
         </div>
-        <div class="price-wrapper">
-          <span class="price">$10</span>
-          <button class="btn btn-icon btn-outline-primary btn-sm">
-            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
+        <div class="payout-single-item">
+          <span class="item-name">Chocolate Lava Cake</span>
+          <span class="item-price">$10</span>
         </div>
       </div>
-      <div class="product-item">
-        <div class="product-item__thumb">
-          <img src="assets/images/thumbs/img2.png" alt="thumb">
+
+      <p class="additional-title">Additional Charges</p>
+      <div class="additional-charges-wrapper">
+        <div class="d-flex justify-content-between">
+          <span class="charge-for">Restaurant Surcharge</span>
+          <span class="charge">$3.25</span>
         </div>
-        <div class="product-item__content">
-          <h2 class="title"><a href="">Deluxe Cheeseburger</a></h2>
+        <div class="d-flex justify-content-between">
+          <span class="charge-for">Taxes</span>
+          <span class="charge">$2.59</span>
         </div>
-        <div class="price-wrapper">
-          <span class="price">$12.95</span>
-          <button class="btn btn-icon btn-primary btn-sm">
-            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-item__thumb">
-          <img src="assets/images/thumbs/img3.png" alt="thumb">
-        </div>
-        <div class="product-item__content">
-          <h2 class="title"><a href="">Truffle Smash Burger</a></h2>
-        </div>
-        <div class="price-wrapper">
-          <span class="price">$23</span>
-          <button class="btn btn-icon btn-outline-primary btn-sm">
-            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
+        <div class="d-flex justify-content-between">
+          <span class="charge-for">MyServ Service</span>
+          <span class="charge">$2.50</span>
         </div>
       </div>
-      <div class="product-item">
-        <div class="product-item__thumb">
-          <img src="assets/images/thumbs/img4.png" alt="thumb">
-        </div>
-        <div class="product-item__content">
-          <h2 class="title"><a href="">Chocolate Lava Cake</a></h2>
-        </div>
-        <div class="price-wrapper">
-          <span class="price">$15.50</span>
-          <button class="btn btn-icon btn-primary btn-sm">
-            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-item__thumb">
-          <img src="assets/images/thumbs/img5.png" alt="thumb">
-        </div>
-        <div class="product-item__content">
-          <h2 class="title"><a href="">Chicken Caesar Salad</a></h2>
-        </div>
-        <div class="price-wrapper">
-          <span class="price">$19</span>
-          <button class="btn btn-icon btn-outline-primary btn-sm">
-            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-item__thumb">
-          <img src="assets/images/thumbs/img6.png" alt="thumb">
-        </div>
-        <div class="product-item__content">
-          <h2 class="title"><a href="">Deluxe Cheeseburger</a></h2>
-        </div>
-        <div class="price-wrapper">
-          <span class="price">$12.95</span>
-          <button class="btn btn-icon btn-primary btn-sm">
-            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-item__thumb">
-          <img src="assets/images/thumbs/img5.png" alt="thumb">
-        </div>
-        <div class="product-item__content">
-          <h2 class="title"><a href="">Chicken Caesar Salad</a></h2>
-        </div>
-        <div class="price-wrapper">
-          <span class="price">$19</span>
-          <button class="btn btn-icon btn-outline-primary btn-sm">
-            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-item__thumb">
-          <img src="assets/images/thumbs/img6.png" alt="thumb">
-        </div>
-        <div class="product-item__content">
-          <h2 class="title"><a href="">Deluxe Cheeseburger</a></h2>
-        </div>
-        <div class="price-wrapper">
-          <span class="price">$12.95</span>
-          <button class="btn btn-icon btn-primary btn-sm">
-            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
+
     </div>
   </div>
+
 </main>
 
 <footer class="footer-section">

@@ -70,3 +70,60 @@ body {
     }
   }
 }
+
+/* payout page start */
+.payout-wrapper {
+  padding-top: 24px;
+}
+.payout-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  .table-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+  }
+}
+.payout-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.payout-single-item {
+  padding: 20px 14px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-white);
+  .item-price {
+    color: var(--c-heading);
+    font-weight: 600;
+    font-size: var(--fs-14);
+  }
+}
+.additional-title {
+  margin-top: 32px;
+  margin-bottom: 24px;
+  font-size: var(--fs-14);
+}
+.additional-charges-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 16px 14px;
+  border-radius: 16px;
+  background-color: var(--bg-white);
+  .charge-for {
+    font-size: var(--fs-14);
+  }
+  .charge {
+    font-size: var(--fs-14);
+    color: var(--c-heading);
+    font-weight: 600;
+  }
+}
+/* payout page end */

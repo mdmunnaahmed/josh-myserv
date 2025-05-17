@@ -1,0 +1,66 @@
+<!-- meta tags and other links -->
+@@include('../partial/_template-top.html')
+
+<header class="header-section">
+  <div class="container">
+    <div class="header-wrapper">
+      <button class="menu-toggler btn btn-icon">
+        <img src="assets/images/icons/menu-01.svg" alt="menu toggle">
+      </button>
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <h1 class="menu-title">Pay Tab</h1>
+        <span class="menu-subtitle">Group Order Code: A51C</span>
+      </div>
+      <button class="menu-toggler btn btn-icon">
+        <img src="assets/images/icons/shopping-cart-01.svg" alt="menu toggle">
+        <span class="float-badge">2</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="main-wrapper">
+  <div class="container">
+    <div class="payout-wrapper">
+      <div class="payout-header">
+        <div class="table-info">
+          <img src="assets/images/icons/restaurant-table.svg" alt="icon">
+          <span>Table 17 </span>
+        </div>
+        <button class="btn btn-primary btn-md">$29.29</button>
+      </div>
+
+      <div class="payout-items">
+        <div class="payout-single-item">
+          <span class="item-name">Chicken Caesar Salad</span>
+          <span class="item-price">$10</span>
+        </div>
+        <div class="payout-single-item">
+          <span class="item-name">Chocolate Lava Cake</span>
+          <span class="item-price">$10</span>
+        </div>
+      </div>
+
+      <p class="additional-title">Additional Charges</p>
+      <div class="additional-charges-wrapper">
+        <div class="d-flex justify-content-between">
+          <span class="charge-for">Restaurant Surcharge</span>
+          <span class="charge">$3.25</span>
+        </div>
+        <div class="d-flex justify-content-between">
+          <span class="charge-for">Taxes</span>
+          <span class="charge">$2.59</span>
+        </div>
+        <div class="d-flex justify-content-between">
+          <span class="charge-for">MyServ Service</span>
+          <span class="charge">$2.50</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+@@include('../partial/_footer.html')
+@@include('../partial/_template-bottom.html')

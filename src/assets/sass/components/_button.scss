@@ -1,11 +1,17 @@
 .btn {
   position: relative;
+  line-height: 1;
   height: 36px;
   display: inline-flex;
+  align-items: center;
   justify-content: center;
   padding-inline: 12px;
   font-size: var(--fs-14);
   border-radius: 32px;
+  font-weight: 600;
+  &.btn-md {
+    height: 32px;
+  }
 
   &.btn-white {
     background-color: var(--bg-white);
@@ -39,7 +45,7 @@
     &.btn-outline-primary {
       border-color: var(--c-heading);
       background-color: var(--bg-white);
-      opacity: .7;
+      opacity: 0.7;
       svg path {
         stroke: var(--c-heading);
       }

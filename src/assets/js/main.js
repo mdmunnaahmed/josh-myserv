@@ -1,10 +1,5 @@
 "user strict";
 
-// Preloader
-$(window).on("load", function () {
-  $(".preloader").fadeOut(1000);
-});
-
 document.querySelectorAll(".category-list button").forEach((button) => {
   button.addEventListener("click", function () {
     document.querySelectorAll(".category-list button").forEach((btn) => {
@@ -21,4 +16,13 @@ document.querySelectorAll(".price-wrapper .btn").forEach((button) => {
     this.classList.toggle("btn-primary");
     this.classList.toggle("btn-outline-primary");
   });
+});
+
+// Active Path Active
+var path = location.pathname.split("/");
+var current = location.pathname.split("/")[path.length - 1];
+$(".footer-links li a").each(function () {
+  if ($(this).attr("href").indexOf(current) !== -1 && current != "") {
+    $(this).addClass("active");
+  }
 });
