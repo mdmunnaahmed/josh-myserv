@@ -1,5 +1,21 @@
 .btn {
   position: relative;
+  height: 36px;
+  display: inline-flex;
+  justify-content: center;
+  padding-inline: 12px;
+  font-size: var(--fs-14);
+  border-radius: 32px;
+
+  &.btn-white {
+    background-color: var(--bg-white);
+    color: var(--c-heading);
+  }
+  &.btn-primary {
+    background-color: var(--c-primary);
+    color: var(--c-white);
+  }
+
   &.btn-icon {
     width: 40px;
     height: 40px;
@@ -8,6 +24,26 @@
     justify-content: center;
     background-color: #9ba77f1f;
     border-radius: 12px;
+    padding: 0;
+    &.btn-sm {
+      width: 20px;
+      height: 20px;
+    }
+    &.btn-primary {
+      border-color: var(--c-heading);
+      background-color: var(--c-heading);
+      svg path {
+        stroke: var(--bg-white);
+      }
+    }
+    &.btn-outline-primary {
+      border-color: var(--c-heading);
+      background-color: var(--bg-white);
+      opacity: .7;
+      svg path {
+        stroke: var(--c-heading);
+      }
+    }
   }
 }
 
@@ -22,7 +58,7 @@
   justify-content: center;
   font-weight: 500;
   font-size: 9px;
-  line-height: .85;
+  line-height: 1;
   background-color: var(--c-warning);
   border-radius: 50%;
   color: var(--c-white);
