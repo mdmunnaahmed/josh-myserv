@@ -15,3 +15,80 @@
     color: var(--c-primary);
   }
 }
+
+.menu-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100dvh;
+  overflow-y: auto;
+  background-color: var(--bg-white);
+  width: 275px;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 32px;
+  transform: translateX(-100%);
+  transition: all 0.3s linear;
+  &.active {
+    transform: translateX(0);
+  }
+
+  .logo-area {
+    background: url("../images/icons/mask.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .links-area {
+    padding: 24px;
+    .link-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #919191;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 14px;
+      .line {
+        flex-grow: 1;
+        border-top: 1px solid var(--border-light);
+      }
+    }
+  }
+  .menu-links {
+    margin-bottom: 32px;
+
+    background-color: #7f87a71f;
+    border-radius: 16px;
+    li {
+      a {
+        padding: 14px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-weight: 500;
+        font-size: var(--fs-14);
+        transition: all 0.3s ease;
+        svg path {
+          transition: all 0.3s ease;
+        }
+        &:hover,
+        &.active {
+          color: var(--c-primary);
+          svg path {
+            stroke: var(--c-primary);
+          }
+        }
+      }
+    }
+  }
+  .login-btn {
+    margin-inline: 20px;
+    margin-top: auto;
+  }
+}

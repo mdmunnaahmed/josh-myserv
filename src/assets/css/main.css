@@ -20,7 +20,7 @@
   --c-info: #7189ff;
   --c-dark: #01111a;
   --border-default: #ebebeb;
-  --border-light: #f0f0f0;
+  --border-light: #EEEEEE;
   --border-dark: #ccc;
   --bg-light: #f5f5f5;
   --bg-white: #ffffff;
@@ -45,6 +45,9 @@ a {
   text-decoration: none;
   color: var(--c-body);
 }
+a:hover {
+  color: var(--c-primary);
+}
 
 span,
 sub,
@@ -65,39 +68,15 @@ ul {
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 111;
+  z-index: 98;
   visibility: hidden;
   opacity: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: all 0.3s linear;
 }
 .overlay.active {
   visibility: visible;
   opacity: 1;
-}
-
-.scrollToTop {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--c-white);
-  z-index: 9999;
-  bottom: 30px;
-  right: 30px;
-  font-size: 18px;
-  position: fixed;
-  transform: translateY(150px);
-  background: var(--c-primary);
-  border-radius: 3px;
-}
-
-.scrollToTop:hover {
-  color: var(--c-white);
-}
-
-.scrollToTop.active {
-  transform: translateY(0);
-  animation: bounceInDown 2s;
 }
 
 h1,
@@ -190,11 +169,29 @@ h3 {
 .btn.btn-md {
   height: 32px;
 }
+.btn.btn-lg {
+  height: 54px;
+  font-size: var(--fs-base);
+}
 .btn.btn-white {
   background-color: var(--bg-white);
   color: var(--c-heading);
 }
 .btn.btn-primary {
+  background-color: var(--c-primary);
+  color: var(--c-white);
+}
+.btn.btn-primary:hover {
+  background-color: transparent;
+  border-color: var(--c-primary);
+  color: var(--c-primary);
+}
+.btn.btn-outline-primary {
+  background-color: transparent;
+  border-color: var(--c-primary);
+  color: var(--c-primary);
+}
+.btn.btn-outline-primary:hover {
   background-color: var(--c-primary);
   color: var(--c-white);
 }
@@ -264,6 +261,78 @@ h3 {
   color: var(--c-primary);
 }
 
+.menu-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100dvh;
+  overflow-y: auto;
+  background-color: var(--bg-white);
+  width: 275px;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 32px;
+  transform: translateX(-100%);
+  transition: all 0.3s linear;
+}
+.menu-wrapper.active {
+  transform: translateX(0);
+}
+.menu-wrapper .logo-area {
+  background: url("../images/icons/mask.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu-wrapper .links-area {
+  padding: 24px;
+}
+.menu-wrapper .links-area .link-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #919191;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.menu-wrapper .links-area .link-title .line {
+  flex-grow: 1;
+  border-top: 1px solid var(--border-light);
+}
+.menu-wrapper .menu-links {
+  margin-bottom: 32px;
+  background-color: rgba(127, 135, 167, 0.1215686275);
+  border-radius: 16px;
+}
+.menu-wrapper .menu-links li a {
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 500;
+  font-size: var(--fs-14);
+  transition: all 0.3s ease;
+}
+.menu-wrapper .menu-links li a svg path {
+  transition: all 0.3s ease;
+}
+.menu-wrapper .menu-links li a:hover, .menu-wrapper .menu-links li a.active {
+  color: var(--c-primary);
+}
+.menu-wrapper .menu-links li a:hover svg path, .menu-wrapper .menu-links li a.active svg path {
+  stroke: var(--c-primary);
+}
+.menu-wrapper .login-btn {
+  margin-inline: 20px;
+  margin-top: auto;
+}
+
 .footer-section {
   padding-top: 8px;
   padding-bottom: 4px;
@@ -292,6 +361,9 @@ h3 {
   bottom: 4px;
   transform: translateX(-50%) scaleX(0);
   transition: all 0.3s ease;
+}
+.footer-links li a:hover span {
+  color: var(--c-body);
 }
 .footer-links li a.active::before {
   transform: translateX(-50%) scaleX(1);
@@ -425,6 +497,13 @@ body {
   margin-top: 32px;
   margin-bottom: 24px;
   font-size: var(--fs-14);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.additional-title .line {
+  border-top: 1px solid #D9D9D9;
+  flex-grow: 1;
 }
 
 .additional-charges-wrapper {
@@ -442,6 +521,15 @@ body {
   font-size: var(--fs-14);
   color: var(--c-heading);
   font-weight: 600;
+}
+
+.bottom-button-wrapper {
+  padding-block: 10px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.flex-basis-50 {
+  flex-basis: 50%;
 }
 
 /* payout page end */

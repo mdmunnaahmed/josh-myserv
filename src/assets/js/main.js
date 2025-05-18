@@ -26,3 +26,15 @@ $(".footer-links li a").each(function () {
     $(this).addClass("active");
   }
 });
+
+// Toggle menu and overlay
+document.querySelector(".menu-toggler").addEventListener("click", function () {
+  document.querySelector(".overlay")?.classList.toggle("active");
+  document.querySelector(".menu-wrapper")?.classList.toggle("active");
+});
+
+// Hide menu and overlay when clicking on overlay
+document.querySelector(".overlay")?.addEventListener("click", function () {
+  this.classList.remove("active");
+  document.querySelector(".menu-wrapper")?.classList.remove("active");
+});

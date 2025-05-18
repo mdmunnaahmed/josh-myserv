@@ -109,6 +109,13 @@ body {
   margin-top: 32px;
   margin-bottom: 24px;
   font-size: var(--fs-14);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  .line {
+    border-top: 1px solid #D9D9D9;
+    flex-grow: 1;
+  }
 }
 .additional-charges-wrapper {
   display: flex;
@@ -125,5 +132,12 @@ body {
     color: var(--c-heading);
     font-weight: 600;
   }
+}
+.bottom-button-wrapper {
+  padding-block: 10px;
+  border-bottom: 1px solid var(--border-light);
+}
+.flex-basis-50 {
+  flex-basis: 50%;
 }
 /* payout page end */
