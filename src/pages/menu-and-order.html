@@ -5,11 +5,11 @@
   <div class="container">
     <div class="header-wrapper">
       <button class="menu-toggler btn btn-icon">
-        <img src="assets/images/icons/menu-01.svg" alt="menu toggle">
+        <img src="assets/images/icons/menu-01.svg" alt="menu toggle" />
       </button>
       <h1 class="menu-title">Menu & Order</h1>
       <button class="menu-toggler btn btn-icon">
-        <img src="assets/images/icons/shopping-cart-01.svg" alt="menu toggle">
+        <img src="assets/images/icons/shopping-cart-01.svg" alt="menu toggle" />
         <span class="float-badge">2</span>
       </button>
     </div>
@@ -18,158 +18,246 @@
 
 <main class="main-wrapper">
   <div class="category-list-wrapper">
-    <ul class="category-list">
+    <ul class="category-list nav-tabs nav">
       <li>
-        <button class="btn btn-primary">House Favorites</button>
+        <a data-bs-toggle="tab" href="#HouseFavorites" class="btn btn-white active">House Favorites</a>
       </li>
       <li>
-        <button class="btn btn-white">Drinks</button>
+        <a data-bs-toggle="tab" href="#Drinks" class="btn btn-white">Drinks</a>
       </li>
       <li>
-        <button class="btn btn-white">Cocktails</button>
+        <a data-bs-toggle="tab" href="#Cocktails" class="btn btn-white">Cocktails</a>
       </li>
       <li>
-        <button class="btn btn-white">Starters</button>
+        <a data-bs-toggle="tab" href="#Starters" class="btn btn-white">Starters</a>
       </li>
       <li>
-        <button class="btn btn-white">Drinks</button>
+        <a data-bs-toggle="tab" href="#Drinks" class="btn btn-white">Drinks</a>
       </li>
     </ul>
   </div>
 
   <div class="container">
-    <div class="products-wrapper">
-      <div class="product-item">
-        <div class="product-item__thumb">
-          <img src="assets/images/thumbs/img1.png" alt="thumb">
-        </div>
-        <div class="product-item__content">
-          <h2 class="title"><a href="">Chicken Caesar Salad</a></h2>
-        </div>
-        <div class="price-wrapper">
-          <span class="price">$10</span>
-          <button class="btn btn-icon btn-outline-primary btn-sm">
-            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="HouseFavorites">
+        <div class="products-wrapper">
+          <div class="product-item">
+            <div class="product-item__thumb">
+              <img src="assets/images/thumbs/img1.png" alt="thumb" />
+            </div>
+            <div class="product-item__content">
+              <h2 class="title"><a href="">Chicken Caesar Salad</a></h2>
+            </div>
+            <div class="price-wrapper">
+              <span class="price">$10</span>
+              <button class="btn btn-icon btn-outline-success btn-sm">
+                <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="product-item__thumb">
+              <img src="assets/images/thumbs/img2.png" alt="thumb" />
+            </div>
+            <div class="product-item__content">
+              <h2 class="title"><a href="">Deluxe Cheeseburger</a></h2>
+            </div>
+            <div class="price-wrapper">
+              <span class="price">$12.95</span>
+              <button class="btn btn-icon btn-success btn-sm">
+                <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="product-item__thumb">
+              <img src="assets/images/thumbs/img3.png" alt="thumb" />
+            </div>
+            <div class="product-item__content">
+              <h2 class="title"><a href="">Truffle Smash Burger</a></h2>
+            </div>
+            <div class="price-wrapper">
+              <span class="price">$23</span>
+              <button class="btn btn-icon btn-outline-success btn-sm">
+                <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="product-item__thumb">
+              <img src="assets/images/thumbs/img4.png" alt="thumb" />
+            </div>
+            <div class="product-item__content">
+              <h2 class="title"><a href="">Chocolate Lava Cake</a></h2>
+            </div>
+            <div class="price-wrapper">
+              <span class="price">$15.50</span>
+              <button class="btn btn-icon btn-success btn-sm">
+                <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="product-item__thumb">
+              <img src="assets/images/thumbs/img5.png" alt="thumb" />
+            </div>
+            <div class="product-item__content">
+              <h2 class="title"><a href="">Chicken Caesar Salad</a></h2>
+            </div>
+            <div class="price-wrapper">
+              <span class="price">$19</span>
+              <button class="btn btn-icon btn-outline-success btn-sm">
+                <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="product-item__thumb">
+              <img src="assets/images/thumbs/img6.png" alt="thumb" />
+            </div>
+            <div class="product-item__content">
+              <h2 class="title"><a href="">Deluxe Cheeseburger</a></h2>
+            </div>
+            <div class="price-wrapper">
+              <span class="price">$12.95</span>
+              <button class="btn btn-icon btn-success btn-sm">
+                <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="product-item__thumb">
+              <img src="assets/images/thumbs/img5.png" alt="thumb" />
+            </div>
+            <div class="product-item__content">
+              <h2 class="title"><a href="">Chicken Caesar Salad</a></h2>
+            </div>
+            <div class="price-wrapper">
+              <span class="price">$19</span>
+              <button class="btn btn-icon btn-outline-success btn-sm">
+                <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-item">
+            <div class="product-item__thumb">
+              <img src="assets/images/thumbs/img6.png" alt="thumb" />
+            </div>
+            <div class="product-item__content">
+              <h2 class="title"><a href="">Deluxe Cheeseburger</a></h2>
+            </div>
+            <div class="price-wrapper">
+              <span class="price">$12.95</span>
+              <button class="btn btn-icon btn-success btn-sm">
+                <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="product-item">
-        <div class="product-item__thumb">
-          <img src="assets/images/thumbs/img2.png" alt="thumb">
-        </div>
-        <div class="product-item__content">
-          <h2 class="title"><a href="">Deluxe Cheeseburger</a></h2>
-        </div>
-        <div class="price-wrapper">
-          <span class="price">$12.95</span>
-          <button class="btn btn-icon btn-primary btn-sm">
-            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-item__thumb">
-          <img src="assets/images/thumbs/img3.png" alt="thumb">
-        </div>
-        <div class="product-item__content">
-          <h2 class="title"><a href="">Truffle Smash Burger</a></h2>
-        </div>
-        <div class="price-wrapper">
-          <span class="price">$23</span>
-          <button class="btn btn-icon btn-outline-primary btn-sm">
-            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-item__thumb">
-          <img src="assets/images/thumbs/img4.png" alt="thumb">
-        </div>
-        <div class="product-item__content">
-          <h2 class="title"><a href="">Chocolate Lava Cake</a></h2>
-        </div>
-        <div class="price-wrapper">
-          <span class="price">$15.50</span>
-          <button class="btn btn-icon btn-primary btn-sm">
-            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-item__thumb">
-          <img src="assets/images/thumbs/img5.png" alt="thumb">
-        </div>
-        <div class="product-item__content">
-          <h2 class="title"><a href="">Chicken Caesar Salad</a></h2>
-        </div>
-        <div class="price-wrapper">
-          <span class="price">$19</span>
-          <button class="btn btn-icon btn-outline-primary btn-sm">
-            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-item__thumb">
-          <img src="assets/images/thumbs/img6.png" alt="thumb">
-        </div>
-        <div class="product-item__content">
-          <h2 class="title"><a href="">Deluxe Cheeseburger</a></h2>
-        </div>
-        <div class="price-wrapper">
-          <span class="price">$12.95</span>
-          <button class="btn btn-icon btn-primary btn-sm">
-            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-item__thumb">
-          <img src="assets/images/thumbs/img5.png" alt="thumb">
-        </div>
-        <div class="product-item__content">
-          <h2 class="title"><a href="">Chicken Caesar Salad</a></h2>
-        </div>
-        <div class="price-wrapper">
-          <span class="price">$19</span>
-          <button class="btn btn-icon btn-outline-primary btn-sm">
-            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="product-item">
-        <div class="product-item__thumb">
-          <img src="assets/images/thumbs/img6.png" alt="thumb">
-        </div>
-        <div class="product-item__content">
-          <h2 class="title"><a href="">Deluxe Cheeseburger</a></h2>
-        </div>
-        <div class="price-wrapper">
-          <span class="price">$12.95</span>
-          <button class="btn btn-icon btn-primary btn-sm">
-            <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </button>
+      <div class="tab-pane fade " id="Starters">
+        <div class="products-wrapper style--two">
+          <div class="product-item style--two">
+            <div class="product-item__content">
+              <h2 class="title"><a href="">Carrots</a> <img src="assets/images/icons/star.svg" alt="" /></h2>
+              <p class="short-des">Spiced baby carrots, sweet and sour Pedro Ximénez reduction, orange honey yogurt, mojo verde, Marcona almonds</p>
+            </div>
+            <div class="price-wrapper">
+              <span class="price">$10</span>
+              <button class="btn btn-icon btn-outline-success btn-sm">
+                <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-item style--two">
+            <div class="product-item__content">
+              <h2 class="title">
+                <a href="">Shishito Peppers</a>
+                <img src="assets/images/icons/camera.svg" alt="" />
+                <img src="assets/images/icons/double-arrow-up.svg" alt="" />
+              </h2>
+              <p class="short-des">Spiced baby carrots, sweet and sour Pedro Ximénez reduction, orange honey yogurt, mojo verde, Marcona almonds</p>
+            </div>
+            <div class="price-wrapper">
+              <span class="price">$10</span>
+              <button class="btn btn-icon btn-outline-success btn-sm">
+                <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-item style--two">
+            <div class="product-item__content">
+              <h2 class="title"><a href="">Mushroom Croquettes</a>
+                <img src="assets/images/icons/camera.svg" alt="" />
+                <img src="assets/images/icons/medal.svg" alt="" />
+              </h2>
+              <p class="short-des">Spiced baby carrots, sweet and sour Pedro Ximénez reduction, orange honey yogurt, mojo verde, Marcona almonds</p>
+            </div>
+            <div class="price-wrapper">
+              <span class="price">$10</span>
+              <button class="btn btn-icon btn-outline-success btn-sm">
+                <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-item style--two">
+            <div class="product-item__content">
+              <h2 class="title"><a href="">Patatas Bravas</a>
+                  <img src="assets/images/icons/camera.svg" alt="" />
+                <img src="assets/images/icons/Fire.svg" alt="" />
+                <img src="assets/images/icons/medal.svg" alt="" />
+              </h2>
+              <p class="short-des">Spiced baby carrots, sweet and sour Pedro Ximénez reduction, orange honey yogurt, mojo verde, Marcona almonds</p>
+            </div>
+            <div class="price-wrapper">
+              <span class="price">$10</span>
+              <button class="btn btn-icon btn-outline-success btn-sm">
+                <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="product-item style--two">
+            <div class="product-item__content">
+              <h2 class="title"><a href="">Eggplant</a> <img src="assets/images/icons/star.svg" alt="" /><img src="assets/images/icons/medal.svg" alt="" /></h2>
+              <p class="short-des">Spiced baby carrots, sweet and sour Pedro Ximénez reduction, orange honey yogurt, mojo verde, Marcona almonds</p>
+            </div>
+            <div class="price-wrapper">
+              <span class="price">$10</span>
+              <button class="btn btn-icon btn-outline-success btn-sm">
+                <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </main>
 
-@@include('../partial/_footer.html')
-@@include('../partial/_template-bottom.html')
+@@include('../partial/_footer.html') @@include('../partial/_template-bottom.html')

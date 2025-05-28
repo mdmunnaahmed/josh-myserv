@@ -13,8 +13,8 @@ document.querySelectorAll(".category-list button").forEach((button) => {
 
 document.querySelectorAll(".price-wrapper .btn").forEach((button) => {
   button.addEventListener("click", function () {
-    this.classList.toggle("btn-primary");
-    this.classList.toggle("btn-outline-primary");
+    this.classList.toggle("btn-success");
+    this.classList.toggle("btn-outline-success");
   });
 });
 

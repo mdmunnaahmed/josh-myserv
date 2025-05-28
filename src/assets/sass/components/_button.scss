@@ -43,6 +43,28 @@
       color: var(--c-white);
     }
   }
+  &.btn-success {
+    border-color: var(--c-success);
+    background-color: var(--c-success) !important;
+    color: var(--c-white);
+    svg {
+      path {
+        stroke: var(--c-white);
+        transition: all .3s ease;
+      }
+    }
+  }
+  &.btn-outline-success {
+    background-color: transparent !important;
+    border-color: var(--c-success);
+    color: var(--c-success);
+    svg {
+      path {
+        stroke: var(--c-success);
+        transition: all .3s ease;
+      }
+    }
+  }
 
   &.btn-icon {
     width: 40px;

@@ -14,7 +14,7 @@
   --c-secondary: #8f9893;
   --c-white: #ffffff;
   --c-black: #000000;
-  --c-success: #14ad06;
+  --c-success: #66AE03;
   --c-danger: #f02922;
   --c-warning: #f46937;
   --c-info: #7189ff;
@@ -176,6 +176,24 @@ h3 {
 .btn.btn-outline-primary:hover {
   background-color: var(--c-primary);
   color: var(--c-white);
+}
+.btn.btn-success {
+  border-color: var(--c-success);
+  background-color: var(--c-success) !important;
+  color: var(--c-white);
+}
+.btn.btn-success svg path {
+  stroke: var(--c-white);
+  transition: all 0.3s ease;
+}
+.btn.btn-outline-success {
+  background-color: transparent !important;
+  border-color: var(--c-success);
+  color: var(--c-success);
+}
+.btn.btn-outline-success svg path {
+  stroke: var(--c-success);
+  transition: all 0.3s ease;
 }
 .btn.btn-icon {
   width: 40px;
@@ -414,6 +432,15 @@ body {
   padding-right: 16px;
   min-width: -moz-max-content;
   min-width: max-content;
+  padding-block: 0;
+  background-color: transparent;
+}
+.main-wrapper .category-list li a {
+  white-space: nowrap;
+  border-radius: 50px;
+}
+.main-wrapper .category-list li a:focus {
+  border-color: var(--c-primary);
 }
 .main-wrapper .category-list-wrapper {
   overflow-x: auto;
@@ -430,6 +457,9 @@ body {
   grid-template-columns: 1fr 1fr;
   padding-bottom: 32px;
 }
+.products-wrapper.style--two {
+  grid-template-columns: 1fr;
+}
 
 .product-item {
   padding: 12px;
@@ -438,6 +468,33 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+}
+.product-item.style--two {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+.product-item.style--two .title {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.product-item.style--two .title img {
+  margin-inline-start: 6px;
+}
+.product-item.style--two .short-des {
+  font-size: 12px;
+  margin-bottom: 0;
+  font-weight: 500;
+  color: #919191;
+}
+.product-item.style--two .price-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.product-item.style--two .price-wrapper .btn {
+  margin-bottom: 6px;
 }
 .product-item__thumb {
   border-radius: 10px;

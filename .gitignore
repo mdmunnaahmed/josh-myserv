@@ -17,6 +17,7 @@ node_modules/
 
 # Package files
 *.jar
+*.zip
 
 # Maven
 target/
