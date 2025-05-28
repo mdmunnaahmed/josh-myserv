@@ -1,0 +1,26 @@
+.nav-tabs {
+  background-color: var(--bg-white);
+  padding: 4px;
+  border-radius: 16px;
+  border: none;
+  margin: 0;
+  li {
+    flex-grow: 1;
+    flex-basis: 0%;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      flex-grow: 1;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      font-weight: 600;
+      &.active {
+        background-color: var(--c-primary);
+        color: var(--c-white);
+      }
+    }
+  }
+}

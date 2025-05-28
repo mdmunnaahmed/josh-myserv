@@ -9,8 +9,11 @@
   font-size: var(--fs-14);
   border-radius: 32px;
   font-weight: 600;
-  &.btn-md {
+  &.btn-sm {
     height: 32px;
+  }
+  &.btn-md {
+    height: 48px;
   }
   &.btn-lg {
     height: 54px;
@@ -22,6 +25,7 @@
     color: var(--c-heading);
   }
   &.btn-primary {
+    border-color: var(--c-primary);
     background-color: var(--c-primary);
     color: var(--c-white);
     &:hover {

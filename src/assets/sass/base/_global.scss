@@ -40,8 +40,8 @@ ul {
   z-index: 98;
   visibility: hidden;
   opacity: 0;
-  background-color: #000000CC;
-  transition: all .3s linear;
+  background-color: #000000cc;
+  transition: all 0.3s linear;
   &.active {
     visibility: visible;
     opacity: 1;
@@ -81,4 +81,8 @@ h3 {
 }
 .container {
   --bs-gutter-x: 2rem;
+}
+
+.text-primary {
+  color: var(--c-primary) !important;
 }
