@@ -38,3 +38,33 @@ document.querySelector(".overlay")?.addEventListener("click", function () {
   this.classList.remove("active");
   document.querySelector(".menu-wrapper")?.classList.remove("active");
 });
+
+// counter
+document.querySelectorAll(".selection-item").forEach((item) => {
+  const counter = item.querySelector(".counter");
+  const input = counter.querySelector(".value");
+  const minus = counter.querySelector(".minus");
+  const plus = counter.querySelector(".plus");
+
+  const updateState = () => {
+    const value = parseInt(input.value) || 0;
+    item.classList.toggle("inactive", value === 0);
+  };
+
+  minus.addEventListener("click", () => {
+    let value = parseInt(input.value) || 0;
+    if (value > 0) {
+      input.value = value - 1;
+      updateState();
+    }
+  });
+
+  plus.addEventListener("click", () => {
+    let value = parseInt(input.value) || 0;
+    input.value = value + 1;
+    updateState();
+  });
+
+  // Initial state check
+  updateState();
+});
