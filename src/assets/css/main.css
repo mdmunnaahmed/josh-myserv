@@ -1025,4 +1025,20 @@ body {
   flex-shrink: 0;
 }
 
+.add-card-form .form-group {
+  position: relative;
+}
+.add-card-form img {
+  position: absolute;
+  left: 10px;
+  top: 14px;
+}
+.add-card-form .form-control {
+  padding-left: 52px;
+  border-radius: 16px;
+  border: none;
+  height: 54px;
+  background-color: rgba(127, 135, 167, 0.1215686275);
+}
+
 /* common single page end */

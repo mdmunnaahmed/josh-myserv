@@ -557,4 +557,21 @@ body {
     }
   }
 }
+.add-card-form {
+  .form-group {
+    position: relative;
+  }
+  img {
+    position: absolute;
+    left: 10px;
+    top: 14px;
+  }
+  .form-control {
+    padding-left: 52px;
+    border-radius: 16px;
+    border: none;
+    height: 54px;
+    background-color: #7f87a71f;
+  }
+}
 /* common single page end */

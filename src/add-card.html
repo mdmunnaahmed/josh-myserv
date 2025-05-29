@@ -1,0 +1,74 @@
+<!-- meta tags and other links -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyServ: Empowering the Dining Experience</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="16x16" />
+    <!-- bootstrap 5  -->
+    <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css" />
+    <!-- Icon Link  -->
+    <link rel="stylesheet" href="assets/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/lib/animate.css" />
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+<main class="main-wrapper">
+  <div class="single-page-wrapper">
+    <div class="single-page-inner">
+      <div class="title-wrapper">
+        <button class="back-btn" onclick="window.history.back()"><img src="assets/images/icons/arrow-left.svg" alt="icon" /></button>
+        <h2 class="title">Add card</h2>
+        <span style="width: 24px"></span>
+      </div>
+      <form action="" class="add-card-form mt-4">
+        <div class="form-group mb-3">
+          <img src="assets/images/icons/user.svg" alt="icon" />
+          <input type="text" class="form-control" placeholder="Card Holder Name" />
+        </div>
+        <div class="form-group mb-3">
+          <img src="assets/images/icons/credit-card.svg" alt="icon" />
+          <input type="tel" class="form-control" placeholder="Credit Card Number" />
+        </div>
+        <div class="row gy-3">
+          <div class="col-6">
+            <div class="form-group">
+              <img src="assets/images/icons/square-lock-01.svg" alt="icon" />
+              <input type="tel" class="form-control" placeholder="CVV" />
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <img src="assets/images/icons/credit-card.svg" alt="icon" />
+              <input type="text" class="form-control" placeholder="Exp. Date" />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<div class="container mt-auto bottom-button-wrapper">
+  <div class="d-flex flex-column gap-2">
+    <button type="submit" class="btn btn-md btn-primary">Confirm</button>
+  </div>
+</div>
+
+<!-- jQuery library -->
+<script src="assets/js/lib/jquery-3.7.1.min.js"></script>
+<!-- bootstrap js -->
+<script src="assets/js/lib/bootstrap.min.js"></script>
+<!-- main js -->
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>
