@@ -97,7 +97,26 @@
     <img src="assets/images/thumbs/img7.png" alt="thumb" class="w-100" />
     <div class="home-content">
       <h1 class="title">Green Line Restaurant</h1>
-      <p>At Green Line, we're passionate about bringing you quality American fare made with care. We focus on fresh ingredients an... <a href="" class="text-primary fw-medium">Read more</a></p>
+      <p id="about-text" class="mb-0">
+        At Green Line, we're passionate about bringing you quality American fare made with care.
+        <span id="more-text" class="d-none">We focus on fresh ingredients and excellent service to ensure every visit is memorable. Whether you're grabbing a quick lunch or enjoying dinner with family, we’ve got something for everyone.</span>
+        <a href="#" id="toggle-read-more" class="text-primary fw-medium">Read more</a>
+      </p>
+      <script>
+        const toggleLink = document.getElementById("toggle-read-more");
+        const moreText = document.getElementById("more-text");
+
+        toggleLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (moreText.classList.contains("d-none")) {
+            moreText.classList.remove("d-none");
+            toggleLink.textContent = "Read less";
+          } else {
+            moreText.classList.add("d-none");
+            toggleLink.textContent = "Read more";
+          }
+        });
+      </script>
 
       <ul class="nav-tabs nav mt-4 mb-4">
         <li>
@@ -111,7 +130,7 @@
         <div class="tab-pane show fade active" id="info">
           <h2 class="mb-4">Address & Phone Number</h2>
           <div class="map-wrapper">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1141.7431279838322!2d2.196278144165838!3d48.868178046659175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis%2C%20France!5e1!3m2!1sen!2sbd!4v1748500036144!5m2!1sen!2sbd" class="w-100" height="175" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1141.7431279838322!2d2.196278144165838!3d48.868178046659175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis%2C%20France!5e1!3m2!1sen!2sbd!4v1748500036144!5m2!1sen!2sbd" class="w-100" height="175" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
             <div class="d-flex fs-14 mb-2 mt-2 pt-1">
               <img src="assets/images/icons/location-06.svg" alt="icon" class="me-2" />
@@ -135,7 +154,7 @@
             </li>
           </ul>
         </div>
-        <div class="tab-pane fade " id="events">
+        <div class="tab-pane fade" id="events">
           <div class="event-item">
             <div class="event-item__thumb">
               <img src="assets/images/thumbs/img8.png" alt="thumb" class="w-100" />

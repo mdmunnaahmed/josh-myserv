@@ -186,6 +186,12 @@ body {
     }
   }
 }
+#about-text {
+  display: inline;
+  #more-text {
+    display: inline;
+  }
+}
 /* home page end */
 
 /* payout page start */
@@ -370,7 +376,7 @@ body {
     border-left: 1px solid #ffffff66;
     padding-left: 16px;
     transition: all 0.3s ease;
-  }
+  } 
 }
 .enter-instructions {
   border: none;

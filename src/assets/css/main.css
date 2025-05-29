@@ -645,6 +645,13 @@ body {
   margin-bottom: 3px;
 }
 
+#about-text {
+  display: inline;
+}
+#about-text #more-text {
+  display: inline;
+}
+
 /* home page end */
 /* payout page start */
 .payout-wrapper {
