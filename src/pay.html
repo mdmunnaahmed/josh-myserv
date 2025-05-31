@@ -115,80 +115,122 @@
 
 <main class="main-wrapper">
   <div class="container">
-    <div class="cart-items-wrapper">
-      <div class="cart-item">
-        <div class="cart-item__thumb">
-          <img src="assets/images/thumbs/img2.png" alt="thumb" />
+    <h2 class="pay-page-title mt-4 mb-4">Choose Your Payment Method</h2>
+    <label class="payment-option">
+      <label for="applePay">
+        <img src="assets/images/icons/apple.svg" alt="icon" />
+        <div>
+          <h3 class="title">Apple pay</h3>
+          <span>zion@gmail.com</span>
         </div>
-        <div class="cart-item__content">
-          <h3 class="title">Deluxe cheeseburger</h3>
-          <div class="price">$16.00</div>
+      </label>
+      <input type="radio" name="doneness" id="applePay" />
+    </label>
+    <label class="payment-option">
+      <label for="gPay">
+        <img src="assets/images/icons/google.svg" alt="icon" />
+        <div>
+          <h3 class="title">Apple pay</h3>
+          <span>zion@gmail.com</span>
         </div>
-        <div class="counter">
-          <button class="btn p-0 border-0"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
-          <input type="text" class="value bg-transparent" value="1" />
-          <button class="btn p-0 border-0"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
+      </label>
+      <input type="radio" name="doneness" id="gPay" checked />
+    </label>
+    <label class="payment-option">
+      <label for="masterCard">
+        <img src="assets/images/icons/card.svg" alt="icon" />
+        <div>
+          <h3 class="title">Master card</h3>
+          <span>**** **** **** 4444</span>
         </div>
-      </div>
-      <div class="cart-item">
-        <div class="cart-item__thumb">
-          <img src="assets/images/thumbs/img3.png" alt="thumb" />
+      </label>
+      <input type="radio" name="doneness" id="masterCard" />
+    </label>
+    <label class="payment-option">
+      <label for="masterCard">
+        <img src="assets/images/icons/gift-card.svg" alt="icon" />
+        <div>
+          <h3 class="title">Green Line restaurant</h3>
+          <span>Gift Card</span>
         </div>
-        <div class="cart-item__content">
-          <h3 class="title">chocolate lava cake</h3>
-          <div class="price">$8.00</div>
-        </div>
-        <div class="counter">
-          <button class="btn p-0 border-0"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
-          <input type="text" class="value bg-transparent" value="1" />
-          <button class="btn p-0 border-0"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
-        </div>
-      </div>
-      <div class="cart-item">
-        <div class="cart-item__thumb">
-          <img src="assets/images/thumbs/img4.png" alt="thumb" />
-        </div>
-        <div class="cart-item__content">
-          <h3 class="title">Shishito Peppers</h3>
-          <div class="price">$6.00</div>
-        </div>
-        <div class="counter">
-          <button class="btn p-0 border-0"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
-          <input type="text" class="value bg-transparent" value="1" />
-          <button class="btn p-0 border-0"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
-        </div>
-      </div>
+      </label>
+      <input type="radio" name="doneness" id="masterCard" />
+    </label>
 
-      <div class="text-center mt-4">
-        <a href="" class="btn add-more-item-btn">
-          <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8.5 2.66666V13.3333" stroke="#2DA0ED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M3.16663 8H13.8333" stroke="#2DA0ED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-          <span class="ms-2">Add more items</span>
-        </a>
+    <p class="options-title mt-4 mb-3">Summary bill <span class="line"></span></p>
+    <div class="summery-bill-wrapper">
+      <ul class="bill">
+        <li>
+          <span class="title">Subtotal</span>
+          <span class="value">$64.00</span>
+        </li>
+        <li>
+          <span class="title">Tip </span>
+          <span class="value">$16.00</span>
+        </li>
+        <li>
+          <span class="title">Taxes</span>
+          <span class="value">$6.40</span>
+        </li>
+        <li>
+          <span class="title">Restaurant Fees</span>
+          <span class="value">$1.92</span>
+        </li>
+        <li>
+          <span class="title">MyServ Fees</span>
+          <span class="value">$1.28</span>
+        </li>
+        <li><hr /></li>
+        <li>
+          <span class="title fw-bold">Total</span>
+          <span class="value fw-bold">$89.60</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- pay card modal -->
+    <div class="single-page-wrapper custom-modal">
+      <div class="single-page-inner pt-3">
+        <div class="title-wrapper align-items-center">
+          <img src="assets/images/icons/apple-pay.svg" alt="logo" />
+          <button class="btn p-0 border-0"><img src="assets/images/icons/close-btn.svg" alt="icon" /></button>
+        </div>
+        <div class="apple-card mt-3">
+          <div class="apple-card__left">
+            <img src="assets/images/icons/card2.png" alt="icon" />
+            <h3 class="title">Apple Card</h3>
+          </div>
+          <div class="apple-card__right">
+            <a href="" class="py-1 px-2"><img src="assets/images/icons/arrow-right.svg" alt="icon" /></a>
+          </div>
+        </div>
+        <div class="apple-card style--two mt-3">
+          <div class="apple-card__left">
+            <p>Pay Green Line Restaurant</p>
+            <h3 class="title">$89.60</h3>
+          </div>
+          <div class="apple-card__right">
+            <a href="" class="p-1"><img src="assets/images/icons/arrow-right.svg" alt="icon" /></a>
+          </div>
+        </div>
+        <div class="apple-card style--three">
+          <div class="apple-card__left">
+            <img src="assets/images/icons/side-btn.svg" alt="icon" />
+            <h3 class="title">Confirm with Side Button</h3>
+          </div>
+        </div>
       </div>
     </div>
+    <!-- pay card modal -->
   </div>
 </main>
 
-<!-- notification -->
-<div class="floating-notification">
-  <div class="floating-notification__icon">
-    <img src="assets/images/icons/check.svg" alt="icon" />
-  </div>
-  <div class="floating-notification__content">
-    <span class="title">1 item removed</span>
-    <button class="undo-btn btn py-0 border-0">Undo</button>
-  </div>
-</div>
-
 <div class="container mt-auto bottom-button-wrapper">
   <div class="d-flex flex-column gap-2">
-    <button type="button" class="btn btn-md btn-primary add-to-cart-btn">
-      Place Order
-      <span>$30.00</span>
-    </button>
+    <button type="button" class="btn btn-md btn-primary">Pay With Apple Pay</button>
+
+    <p class="fw-medium powered-by text-center mb-0 mt-2">Powered securely by MyServ</p>
+    <p class="term-and-policy text-center m-0">Using the <span class="fw-medium">MyServ</span> app means you agree to our <a href="">terms of use</a> and how we handle your personal data, as detailed in our <a href="">privacy policy</a>. The restaurant you're using the app for will receive the information we collect.</p>
   </div>
 </div>
 
