@@ -189,11 +189,11 @@
     </div>
 
     <!-- pay card modal -->
-    <div class="single-page-wrapper custom-modal">
+    <div class="single-page-wrapper custom-modal" id="applePayModal">
       <div class="single-page-inner pt-3">
         <div class="title-wrapper align-items-center">
           <img src="assets/images/icons/apple-pay.svg" alt="logo" />
-          <button class="btn p-0 border-0"><img src="assets/images/icons/close-btn.svg" alt="icon" /></button>
+          <button class="btn p-0 border-0 modal-close"><img src="assets/images/icons/close-btn.svg" alt="icon" /></button>
         </div>
         <div class="apple-card mt-3">
           <div class="apple-card__left">
@@ -227,7 +227,7 @@
 
 <div class="container mt-auto bottom-button-wrapper">
   <div class="d-flex flex-column gap-2">
-    <button type="button" class="btn btn-md btn-primary">Pay With Apple Pay</button>
+    <button type="button" class="btn btn-md btn-primary" data-modal="applePayModal">Pay With Apple Pay</button>
 
     <p class="fw-medium powered-by text-center mb-0 mt-2">Powered securely by MyServ</p>
     <p class="term-and-policy text-center m-0">Using the <span class="fw-medium">MyServ</span> app means you agree to our <a href="">terms of use</a> and how we handle your personal data, as detailed in our <a href="">privacy policy</a>. The restaurant you're using the app for will receive the information we collect.</p>
