@@ -28,27 +28,37 @@ $(".footer-links li a").each(function () {
 });
 
 // Toggle menu and overlay
-document.querySelector(".menu-toggler").addEventListener("click", function () {
-  document.querySelector(".overlay")?.classList.toggle("active");
-  document.querySelector(".menu-wrapper")?.classList.toggle("active");
-});
+const menuToggler = document.querySelector(".menu-toggler");
+const overlay = document.querySelector(".overlay");
+const menuWrapper = document.querySelector(".menu-wrapper");
 
-// Hide menu and overlay when clicking on overlay
-document.querySelector(".overlay")?.addEventListener("click", function () {
-  this.classList.remove("active");
-  document.querySelector(".menu-wrapper")?.classList.remove("active");
-});
+if (menuToggler && overlay && menuWrapper) {
+  menuToggler.addEventListener("click", function () {
+    overlay.classList.toggle("active");
+    menuWrapper.classList.toggle("active");
+  });
+
+  overlay.addEventListener("click", function () {
+    this.classList.remove("active");
+    menuWrapper.classList.remove("active");
+  });
+}
 
 // counter
-document.querySelectorAll(".selection-item").forEach((item) => {
-  const counter = item.querySelector(".counter");
+document.querySelectorAll(".counter").forEach((counter) => {
   const input = counter.querySelector(".value");
   const minus = counter.querySelector(".minus");
   const plus = counter.querySelector(".plus");
+  const max = parseInt(input.getAttribute("data-max")) || 5;
 
   const updateState = () => {
     const value = parseInt(input.value) || 0;
-    item.classList.toggle("inactive", value === 0);
+
+    // Disable minus if 0
+    minus.classList.toggle("inactive", value <= 0);
+
+    // Disable plus if max
+    plus.classList.toggle("inactive", value >= max);
   };
 
   minus.addEventListener("click", () => {
@@ -61,8 +71,10 @@ document.querySelectorAll(".selection-item").forEach((item) => {
 
   plus.addEventListener("click", () => {
     let value = parseInt(input.value) || 0;
-    input.value = value + 1;
-    updateState();
+    if (value < max) {
+      input.value = value + 1;
+      updateState();
+    }
   });
 
   // Initial state check

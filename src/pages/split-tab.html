@@ -1,39 +1,17 @@
 <!-- meta tags and other links -->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MyServ: Empowering the Dining Experience</title>
-    <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="16x16" />
-    <!-- bootstrap 5  -->
-    <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css" />
-    <!-- Icon Link  -->
-    <link rel="stylesheet" href="assets/css/all.min.css" />
-    <link rel="stylesheet" href="assets/css/lib/animate.css" />
-
-    <!-- Main css -->
-    <link rel="stylesheet" href="assets/css/main.css" />
-</head>
-
-<body>
-    <!-- Overlay -->
-    <div class="overlay"></div>
+@@include('../partial/_template-top.html')
 
 <header class="header-section">
   <div class="container">
     <div class="header-wrapper">
-      <button class="menu-toggler btn btn-icon">
-        <img src="assets/images/icons/menu-01.svg" alt="menu toggle" />
+      <button class="btn btn-icon" onclick="window.history.back()">
+        <img src="assets/images/icons/arrow-left2.svg" alt="menu toggle" />
       </button>
       <div class="d-flex flex-column align-items-center justify-content-center">
-        <h1 class="menu-title">Pay Tab</h1>
+        <h1 class="menu-title">Split Tab</h1>
         <span class="menu-subtitle">Group Order Code: A51C</span>
       </div>
-      <button class="btn btn-icon">
-        <img src="assets/images/icons/share.svg" alt="menu toggle" />
-      </button>
+      <span style="width: 40px"></span>
     </div>
   </div>
 </header>
@@ -114,20 +92,18 @@
 
 <main class="main-wrapper">
   <div class="container">
-    <div class="payout-wrapper">
-      <div class="payout-header">
-        <div class="table-info">
-          <img src="assets/images/icons/restaurant-table.svg" alt="icon" />
-          <span>Table 17 </span>
-        </div>
-        <span class="total-cost">$29.29</span>
-      </div>
-
+    <div class="split-tab-wrapper">
+      <p class="mt-4 split-title">Select items to pay for from the full tab</p>
       <div class="payout-items">
         <div class="payout-single-item">
           <div class="payout-single-item__left">
             <a href="" class="item-name">Chicken Caesar Salad</a>
             <span class="qty">Table Quantity: 1</span>
+          </div>
+          <div class="counter">
+            <button class="btn p-0 border-0 minus"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
+            <input type="text" class="value" value="1" readonly />
+            <button class="btn p-0 border-0 plus"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
           </div>
           <span class="item-price">$10</span>
         </div>
@@ -135,6 +111,11 @@
           <div class="payout-single-item__left">
             <a href="" class="item-name">Chocolate Lava Cake</a>
             <span class="qty">Table Quantity: 1</span>
+          </div>
+          <div class="counter">
+            <button class="btn p-0 border-0 minus"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
+            <input type="text" class="value" value="1" readonly />
+            <button class="btn p-0 border-0 plus"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
           </div>
           <span class="item-price">$15.00</span>
         </div>
@@ -143,12 +124,22 @@
             <a href="" class="item-name">Patatas Bravas</a>
             <span class="qty">Table Quantity: 1</span>
           </div>
+          <div class="counter">
+            <button class="btn p-0 border-0 minus"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
+            <input type="text" class="value" value="1" readonly />
+            <button class="btn p-0 border-0 plus"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
+          </div>
           <span class="item-price">$12.00</span>
         </div>
         <div class="payout-single-item">
           <div class="payout-single-item__left">
             <a href="" class="item-name">Fries</a>
             <span class="qty">Table Quantity: 1</span>
+          </div>
+          <div class="counter">
+            <button class="btn p-0 border-0 minus"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
+            <input type="text" class="value" value="1" readonly />
+            <button class="btn p-0 border-0 plus"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
           </div>
           <span class="item-price">$8.00</span>
         </div>
@@ -157,12 +148,22 @@
             <a href="" class="item-name">Corona</a>
             <span class="qty">Table Quantity: 1</span>
           </div>
+          <div class="counter">
+            <button class="btn p-0 border-0 minus"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
+            <input type="text" class="value" value="1" readonly />
+            <button class="btn p-0 border-0 plus"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
+          </div>
           <span class="item-price">$10</span>
         </div>
         <div class="payout-single-item">
           <div class="payout-single-item__left">
             <a href="" class="item-name">Chocolate Lava Cake</a>
             <span class="qty">Table Quantity: 1</span>
+          </div>
+          <div class="counter">
+            <button class="btn p-0 border-0 minus"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
+            <input type="text" class="value" value="5" readonly />
+            <button class="btn p-0 border-0 plus"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
           </div>
           <span class="item-price">$32.00</span>
         </div>
@@ -172,69 +173,15 @@
 </main>
 
 <div class="container mt-auto bottom-button-wrapper">
-  <div class="d-flex" style="gap: 14px">
-    <a href="./tip.html" class="flex-basis-50 btn btn-lg btn-outline-primary">Split Tab</a>
-    <button class="flex-basis-50 btn btn-lg btn-primary">Pay Full Tab</button>
-  </div>
+  <button type="button" class="btn btn-md btn-primary pay-btn w-100">
+    Pay
+    <!-- <div class="counter">
+      <span class="btn bg-transparent p-0 border-0 minus"><img width="18" src="assets/images/icons/minus-white.svg" alt="icon" /></span>
+      <input type="text" class="value" value="1" />
+      <span class="btn bg-transparent p-0 border-0 plus"><img width="18" src="assets/images/icons/plus-white.svg" alt="icon" /></span>
+    </div> -->
+    <span>$64.00</span>
+  </button>
 </div>
 
-<footer class="footer-section">
-  <div class="container">
-    <div class="footer-wrapper">
-      <ul class="footer-links">
-        <li>
-          <a href="./index.html">
-            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M0.685864 5.82274C0.166664 6.77128 0.166664 7.91549 0.166664 10.2039V11.725C0.166664 15.6258 0.166664 17.5763 1.33823 18.7881C2.50981 20 4.39542 20 8.16666 20H12.1667C15.9379 20 17.8236 20 18.9951 18.7881C20.1667 17.5763 20.1667 15.6258 20.1667 11.725V10.2039C20.1667 7.91549 20.1667 6.77128 19.6475 5.82274C19.1283 4.87421 18.1798 4.28551 16.2827 3.10812L14.2827 1.86687C12.2773 0.62229 11.2746 0 10.1667 0C9.05876 0 8.05605 0.62229 6.05069 1.86687L4.05069 3.10813C2.15361 4.28551 1.20506 4.87421 0.685864 5.82274ZM7.16666 15.25C6.75245 15.25 6.41666 15.5858 6.41666 16C6.41666 16.4142 6.75245 16.75 7.16666 16.75H13.1667C13.5809 16.75 13.9167 16.4142 13.9167 16C13.9167 15.5858 13.5809 15.25 13.1667 15.25H7.16666Z"
-                fill="#919191" />
-            </svg>
-            <span>Home</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="./menu-and-order.html">
-            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M2.5 16.1436V4.99778C2.5 3.89961 3.3863 3.0075 4.4824 3.07487C5.45877 3.13488 6.61349 3.25349 7.5 3.48742C8.54921 3.76429 9.79611 4.35399 10.7823 4.87544C11.0894 5.03783 11.4159 5.15046 11.7502 5.21395V20.3926C11.4472 20.3258 11.1516 20.218 10.8724 20.0692C9.87293 19.5365 8.58145 18.9187 7.5 18.6334C6.62329 18.402 5.48428 18.2835 4.51486 18.2228C3.40605 18.1535 2.5 17.2546 2.5 16.1436ZM5.68208 8.27237C5.28023 8.17191 4.87303 8.41623 4.77257 8.81808C4.67211 9.21992 4.91643 9.62713 5.31828 9.72759L9.31828 10.7276C9.72012 10.8281 10.1273 10.5837 10.2278 10.1819C10.3283 9.78004 10.0839 9.37283 9.68208 9.27237L5.68208 8.27237ZM5.68208 12.2724C5.28023 12.1719 4.87303 12.4163 4.77257 12.8181C4.67211 13.2199 4.91643 13.6271 5.31828 13.7276L9.31828 14.7276C9.72012 14.8281 10.1273 14.5837 10.2278 14.1819C10.3283 13.7801 10.0839 13.3729 9.68208 13.2724L5.68208 12.2724Z"
-                fill="#3259F3" />
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M13.2502 20.3925C13.5531 20.3257 13.8485 20.218 14.1276 20.0692C15.1271 19.5365 16.4185 18.9187 17.5 18.6334C18.3767 18.402 19.5157 18.2835 20.4851 18.2228C21.594 18.1535 22.5 17.2546 22.5 16.1436V4.93319C22.5 3.86075 21.6538 2.98041 20.582 3.01775C19.4534 3.05706 18.0469 3.17403 17 3.48744C16.0924 3.75916 15.0353 4.30418 14.1738 4.80275C13.8824 4.97142 13.5709 5.0953 13.2502 5.17387V20.3925ZM19.6821 9.72761C20.0839 9.62715 20.3282 9.21994 20.2278 8.8181C20.1273 8.41625 19.7201 8.17193 19.3183 8.27239L15.3183 9.27239C14.9164 9.37285 14.6721 9.78006 14.7726 10.1819C14.873 10.5837 15.2802 10.8281 15.6821 10.7276L19.6821 9.72761ZM19.6821 13.7276C20.0839 13.6271 20.3282 13.2199 20.2278 12.8181C20.1273 12.4163 19.7201 12.1719 19.3183 12.2724L15.3183 13.2724C14.9164 13.3729 14.6721 13.7801 14.7726 14.1819C14.873 14.5837 15.2802 14.8281 15.6821 14.7276L19.6821 13.7276Z"
-                fill="#3259F3" />
-            </svg>
-            <span>Menu & Order</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="./pay-tab.html">
-            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M14.8334 4H10.8334C7.06214 4 5.17653 4 4.00495 5.17157C3.16141 6.01511 2.92523 7.22882 2.8591 9.25H22.8077C22.7416 7.22882 22.5054 6.01511 21.6618 5.17157C20.4903 4 18.6046 4 14.8334 4Z"
-                fill="#919191" />
-              <path
-                d="M10.8334 20H14.8334C18.6046 20 20.4903 20 21.6618 18.8284C22.8334 17.6569 22.8334 15.7712 22.8334 12C22.8334 11.5581 22.8334 11.142 22.8315 10.75H2.83526C2.83337 11.142 2.83337 11.5581 2.83337 12C2.83337 15.7712 2.83337 17.6569 4.00494 18.8284C5.17652 20 7.06213 20 10.8334 20Z"
-                fill="#919191" />
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M6.08337 16C6.08337 15.5858 6.41916 15.25 6.83337 15.25H10.8334C11.2476 15.25 11.5834 15.5858 11.5834 16C11.5834 16.4142 11.2476 16.75 10.8334 16.75H6.83337C6.41916 16.75 6.08337 16.4142 6.08337 16Z"
-                fill="white" />
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M12.5834 16C12.5834 15.5858 12.9192 15.25 13.3334 15.25H14.8334C15.2476 15.25 15.5834 15.5858 15.5834 16C15.5834 16.4142 15.2476 16.75 14.8334 16.75H13.3334C12.9192 16.75 12.5834 16.4142 12.5834 16Z"
-                fill="white" />
-            </svg>
-            <span>Pay Tab</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</footer> <!-- jQuery library -->
-<script src="assets/js/lib/jquery-3.7.1.min.js"></script>
-<!-- bootstrap js -->
-<script src="assets/js/lib/bootstrap.min.js"></script>
-<!-- main js -->
-<script src="assets/js/main.js"></script>
-</body>
-
-</html>
+@@include('../partial/_template-bottom.html')

@@ -816,6 +816,23 @@ body {
   height: 54px;
 }
 
+.split-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.split-tab-wrapper .payout-single-item .counter {
+  margin: 0;
+  margin-bottom: auto;
+  margin-inline-start: auto;
+  height: auto;
+}
+.split-tab-wrapper .payout-single-item .item-price {
+  text-align: right;
+  width: 70px;
+  flex-shrink: 0;
+}
+
 /* payout page end */
 /* item detail page start */
 .item-detail-wrapper .item-detail-content {
@@ -899,15 +916,18 @@ body {
   color: var(--c-heading);
 }
 
-.add-to-cart-btn {
+.add-to-cart-btn,
+.pay-btn {
   justify-content: space-between;
   padding-inline: 28px;
 }
-.add-to-cart-btn:hover {
+.add-to-cart-btn:hover,
+.pay-btn:hover {
   color: var(--c-white) !important;
   background-color: var(--c-primary) !important;
 }
-.add-to-cart-btn span {
+.add-to-cart-btn span,
+.pay-btn span {
   border-left: 1px solid rgba(255, 255, 255, 0.4);
   padding-left: 16px;
   transition: all 0.3s ease;
@@ -938,6 +958,9 @@ body {
 .counter span.value {
   width: unset;
 }
+.counter .btn {
+  height: auto;
+}
 
 .btn .counter {
   justify-self: flex-end;
@@ -947,6 +970,11 @@ body {
 .btn .counter .value {
   background-color: transparent;
   color: var(--c-white);
+}
+
+.btn.inactive {
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 .options-title {

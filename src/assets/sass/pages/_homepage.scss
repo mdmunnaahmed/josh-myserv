@@ -347,6 +347,25 @@ body {
     height: 54px;
   }
 }
+.split-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+.split-tab-wrapper {
+  .payout-single-item {
+    .counter {
+      margin: 0;
+      margin-bottom: auto;
+      margin-inline-start: auto;
+      height: auto;
+    }
+    .item-price {
+      text-align: right;
+      width: 70px;
+      flex-shrink: 0;
+    }
+  }
+}
 /* payout page end */
 
 /* item detail page start */
@@ -435,7 +454,8 @@ body {
     }
   }
 }
-.add-to-cart-btn {
+.add-to-cart-btn,
+.pay-btn {
   justify-content: space-between;
   padding-inline: 28px;
   &:hover {
@@ -471,6 +491,9 @@ body {
   span.value {
     width: unset;
   }
+  .btn {
+    height: auto;
+  }
 }
 .btn {
   .counter {
@@ -482,6 +505,10 @@ body {
       color: var(--c-white);
     }
   }
+}
+.btn.inactive {
+  opacity: 0.4;
+  pointer-events: none;
 }
 .options-title {
   display: flex;
