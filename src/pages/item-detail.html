@@ -553,7 +553,7 @@
         const selectedText = item.querySelector(".counter span.value.selected")?.textContent.trim();
         console.log(!selectedText === "None");
 
-        const level = getToppingQuantity(item); // 0 to 3 (None to Extra)
+        const level = getToppingQuantity(item);
         if (level > 0) {
           const priceText = item.querySelector(".item-price")?.textContent || "";
           const price = parseAddonPrice(priceText);
