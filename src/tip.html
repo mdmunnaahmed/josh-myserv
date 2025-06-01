@@ -113,29 +113,60 @@
 <main class="main-wrapper">
   <div class="container">
     <div class="payout-wrapper">
+      <!-- Tip Options -->
       <div class="image-content text-center style--two">
         <img src="assets/images/thumbs/img15.png" alt="thumb" class="mb-3" />
         <h2>Appreciate your server's help?</h2>
-        <p class="mb-0">Tips are shared with our kitchen and waitstaff team and are greatly apprecaited</p>
+        <p class="mb-0">Tips are shared with our kitchen and waitstaff team and are greatly appreciated</p>
         <div class="tip-options mt-4 pt-2">
-          <label for="id1">
-            <input type="radio" name="tip" id="id1" checked />
+          <label for="tip-18">
+            <input type="radio" name="tip" id="tip-18" checked />
             <span class="label">18%</span>
           </label>
-          <label for="id2">
-            <input type="radio" name="tip" id="id2" />
+          <label for="tip-20">
+            <input type="radio" name="tip" id="tip-20" />
             <span class="label">20%</span>
           </label>
-          <label for="id3">
-            <input type="radio" name="tip" id="id3" />
+          <label for="tip-25">
+            <input type="radio" name="tip" id="tip-25" />
             <span class="label">25%</span>
           </label>
-          <label for="id4">
-            <input type="radio" name="tip" id="id4" />
+          <label for="custom-tip">
+            <input type="radio" name="tip" id="custom-tip" />
             <span class="label">Custom Tip</span>
           </label>
         </div>
       </div>
+
+      <!-- Custom Tip Input -->
+      <div class="form-group custom-tip-input" style="display: none">
+        <span class="pretext"><img src="assets/images/icons/s.svg" alt="$" /></span>
+        <input type="tel" class="form-control" />
+      </div>
+
+      <!-- Script (place this before </body> or after the above HTML) -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const customTipInput = document.querySelector(".custom-tip-input");
+
+          document.querySelectorAll("input[name='tip']").forEach((input) => {
+            input.addEventListener("change", function () {
+              if (document.getElementById("custom-tip").checked) {
+                customTipInput.style.display = "block";
+              } else {
+                customTipInput.style.display = "none";
+              }
+            });
+          });
+
+          // Initial check in case page loads with "Custom Tip" selected
+          if (document.getElementById("custom-tip").checked) {
+            customTipInput.style.display = "block";
+          } else {
+            customTipInput.style.display = "none";
+          }
+        });
+      </script>
     </div>
   </div>
 </main>

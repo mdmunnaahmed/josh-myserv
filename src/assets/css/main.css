@@ -796,6 +796,26 @@ body {
   font-weight: 500;
 }
 
+.custom-tip-input {
+  position: relative;
+  display: none;
+  animation: fadeIn 0.4s forwards;
+}
+.custom-tip-input .pretext {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+}
+.custom-tip-input .form-control {
+  padding-left: 40px;
+  border: none;
+  background-color: var(--bg-white);
+  font-weight: 600;
+  color: var(--c-heading);
+  border-radius: 16px;
+  height: 54px;
+}
+
 /* payout page end */
 /* item detail page start */
 .item-detail-wrapper .item-detail-content {

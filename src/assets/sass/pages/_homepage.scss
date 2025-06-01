@@ -318,7 +318,7 @@ body {
   gap: 12px;
   padding: 12px;
   border-radius: 10px;
-  background-color: #3E9B040F;
+  background-color: #3e9b040f;
   .icon {
     flex-shrink: 0;
   }
@@ -326,6 +326,25 @@ body {
     color: #3e9b04;
     font-size: var(--fs-14);
     font-weight: 500;
+  }
+}
+.custom-tip-input {
+  position: relative;
+  display: none;
+  animation: fadeIn 0.4s forwards;
+  .pretext {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+  }
+  .form-control {
+    padding-left: 40px;
+    border: none;
+    background-color: var(--bg-white);
+    font-weight: 600;
+    color: var(--c-heading);
+    border-radius: 16px;
+    height: 54px;
   }
 }
 /* payout page end */
