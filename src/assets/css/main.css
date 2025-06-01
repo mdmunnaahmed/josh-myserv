@@ -835,6 +835,10 @@ body {
 
 /* payout page end */
 /* item detail page start */
+.item-detail-wrapper .main-detail-image {
+  position: sticky;
+  top: 0;
+}
 .item-detail-wrapper .item-detail-content {
   background-color: var(--bg-light);
   border-radius: 24px 24px 0 0;

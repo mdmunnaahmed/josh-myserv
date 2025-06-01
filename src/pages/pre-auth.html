@@ -3,7 +3,7 @@
 
 <main class="main-wrapper">
   <div class="single-page-wrapper">
-    <div class="single-page-inner">
+    <div class="single-page-inner pb-0">
       <div class="title-wrapper">
         <button class="back-btn" onclick="window.history.back()"><img src="assets/images/icons/arrow-left.svg" alt="icon" /></button>
         <h2 class="title">Payment Pre-Authorization</h2>
@@ -20,7 +20,6 @@
           <img src="assets/images/icons/apple.svg" alt="icon" />
           <div>
             <h3 class="title">Apple pay</h3>
-            <span>zion@gmail.com</span>
           </div>
         </label>
         <input type="radio" name="doneness" id="applePay" />
@@ -29,8 +28,7 @@
         <label for="gPay">
           <img src="assets/images/icons/google.svg" alt="icon" />
           <div>
-            <h3 class="title">Apple pay</h3>
-            <span>zion@gmail.com</span>
+            <h3 class="title">Google Pay</h3>
           </div>
         </label>
         <input type="radio" name="doneness" id="gPay" checked />
@@ -47,5 +45,11 @@
     </div>
   </div>
 </main>
+
+<div class="container mt-auto bottom-button-wrapper">
+  <div class="d-flex flex-column gap-2">
+    <a href="" class="btn btn-md btn-primary">Pay</a>
+  </div>
+</div>
 
 @@include('../partial/_template-bottom.html')
