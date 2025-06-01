@@ -45,41 +45,44 @@ if (menuToggler && overlay && menuWrapper) {
 }
 
 // counter
-document.querySelectorAll(".counter").forEach((counter) => {
-  const input = counter.querySelector(".value");
-  const minus = counter.querySelector(".minus");
-  const plus = counter.querySelector(".plus");
-  const max = parseInt(input.getAttribute("data-max")) || 5;
+const counters = document.querySelectorAll(".counter");
+if (counters.length > 0) {
+  counters.forEach((counter) => {
+    const input = counter.querySelector(".value");
+    const minus = counter.querySelector(".minus");
+    const plus = counter.querySelector(".plus");
 
-  const updateState = () => {
-    const value = parseInt(input.value) || 0;
+    // Ensure all required elements exist
+    if (!input || !minus || !plus) return;
 
-    // Disable minus if 0
-    minus.classList.toggle("inactive", value <= 0);
+    const max = parseInt(input.getAttribute("data-max")) || 5;
 
-    // Disable plus if max
-    plus.classList.toggle("inactive", value >= max);
-  };
+    const updateState = () => {
+      const value = parseInt(input.value) || 0;
 
-  minus.addEventListener("click", () => {
-    let value = parseInt(input.value) || 0;
-    if (value > 0) {
-      input.value = value - 1;
-      updateState();
-    }
+      minus.classList.toggle("inactive", value <= 0);
+      plus.classList.toggle("inactive", value >= max);
+    };
+
+    minus.addEventListener("click", () => {
+      let value = parseInt(input.value) || 0;
+      if (value > 0) {
+        input.value = value - 1;
+        updateState();
+      }
+    });
+
+    plus.addEventListener("click", () => {
+      let value = parseInt(input.value) || 0;
+      if (value < max) {
+        input.value = value + 1;
+        updateState();
+      }
+    });
+
+    updateState(); // Initial state
   });
-
-  plus.addEventListener("click", () => {
-    let value = parseInt(input.value) || 0;
-    if (value < max) {
-      input.value = value + 1;
-      updateState();
-    }
-  });
-
-  // Initial state check
-  updateState();
-});
+}
 
 // modal toggle
 document.addEventListener("DOMContentLoaded", function () {
@@ -110,3 +113,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// check if item is active
+const selectionItems = document.querySelectorAll(".selection-item");
+if (selectionItems.length > 0) {
+  selectionItems.forEach((item) => {
+    const checkbox = item.querySelector(".form-check-input");
+    if (!checkbox) return;
+
+    const updateState = () => {
+      item.classList.toggle("inactive", !checkbox.checked);
+    };
+
+    checkbox.addEventListener("change", updateState);
+    updateState(); // initial load
+  });
+}

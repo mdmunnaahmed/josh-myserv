@@ -426,9 +426,13 @@ body {
   background-color: var(--bg-white);
   border-radius: 16px;
   margin-bottom: 14px;
+
   &.selection-item.inactive {
     .selection-item__right {
       opacity: 0.5;
+      .counter {
+        pointer-events: none;
+      }
     }
   }
 
@@ -446,7 +450,7 @@ body {
     display: flex;
     align-items: center;
     gap: 14px;
-    transition: all;
+    transition: all 0.3s ease;
     .item-price {
       font-size: var(--fs-14);
       font-weight: 600;
@@ -508,7 +512,7 @@ body {
 }
 .btn.inactive {
   opacity: 0.4;
-  pointer-events: none;
+  // pointer-events: none;
 }
 .options-title {
   display: flex;

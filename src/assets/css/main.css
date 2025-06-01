@@ -894,6 +894,9 @@ body {
 .selection-item.selection-item.inactive .selection-item__right {
   opacity: 0.5;
 }
+.selection-item.selection-item.inactive .selection-item__right .counter {
+  pointer-events: none;
+}
 .selection-item__left {
   display: flex;
   align-items: center;
@@ -908,7 +911,7 @@ body {
   display: flex;
   align-items: center;
   gap: 14px;
-  transition: all;
+  transition: all 0.3s ease;
 }
 .selection-item__right .item-price {
   font-size: var(--fs-14);
@@ -974,7 +977,6 @@ body {
 
 .btn.inactive {
   opacity: 0.4;
-  pointer-events: none;
 }
 
 .options-title {
