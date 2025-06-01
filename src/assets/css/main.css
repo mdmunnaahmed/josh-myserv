@@ -969,6 +969,17 @@ body {
   height: auto;
 }
 
+.text-shift-counter .value {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.text-shift-counter .value.active {
+  display: inline-block;
+  opacity: 1;
+}
+
 .btn .counter {
   justify-self: flex-end;
   margin-inline-start: auto;

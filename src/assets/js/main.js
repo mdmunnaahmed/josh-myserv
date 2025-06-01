@@ -129,3 +129,91 @@ if (selectionItems.length > 0) {
     updateState(); // initial load
   });
 }
+
+document.querySelectorAll(".text-shift-counter").forEach((counter) => {
+  const values = counter.querySelectorAll(".value");
+  const minus = counter.querySelector("button:first-of-type");
+  const plus = counter.querySelector("button:last-of-type");
+
+  if (!values.length || !minus || !plus) return;
+
+  // Set default index from 'selected' attribute or 0
+  let currentIndex = Array.from(values).findIndex((v) => v.classList.contains("selected"));
+  if (currentIndex === -1) currentIndex = 0;
+
+  const updateDisplay = () => {
+    values.forEach((val, i) => {
+      val.style.display = i === currentIndex ? "inline" : "none";
+      val.classList.toggle("active", i === currentIndex);
+    });
+
+    const currentText = values[currentIndex].textContent.trim().toLowerCase();
+    const selectionItem = counter.closest(".selection-item");
+
+    if (selectionItem) {
+      const checkbox = selectionItem.querySelector(".form-check-input");
+      const isChecked = checkbox ? checkbox.checked : false;
+      const shouldBeInactive = currentText === "none" && !isChecked;
+      selectionItem.classList.toggle("inactive", shouldBeInactive);
+    }
+  };
+
+  minus.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateDisplay();
+    }
+  });
+
+  plus.addEventListener("click", () => {
+    if (currentIndex < values.length - 1) {
+      currentIndex++;
+      updateDisplay();
+    }
+  });
+
+  const checkbox = counter.closest(".selection-item")?.querySelector(".form-check-input");
+  checkbox?.addEventListener("change", updateDisplay);
+
+  updateDisplay(); // Initial
+});
+
+// update cart price
+document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
+  const counter = btn.querySelector(".counter");
+  const input = counter?.querySelector(".value");
+  const minus = counter?.querySelector(".minus");
+  const plus = counter?.querySelector(".plus");
+  const total = btn.querySelector(".cart-total");
+
+  if (!counter || !input || !minus || !plus || !total) return;
+
+  const unitPrice = parseFloat(btn.getAttribute("data-price")) || 15;
+  const max = parseInt(input.getAttribute("data-max")) || 99;
+
+  const updatePrice = () => {
+    const quantity = parseInt(input.value) || 0;
+    total.textContent = `$${(quantity * unitPrice).toFixed(2)}`;
+    minus.classList.toggle("inactive", quantity <= 1);
+    plus.classList.toggle("inactive", quantity >= max);
+  };
+
+  minus.addEventListener("click", () => {
+    let value = parseInt(input.value) || 1;
+    updatePrice();
+    if (value > 1) {
+      // input.value = value - 1;
+    }
+  });
+
+  plus.addEventListener("click", () => {
+    let value = parseInt(input.value) || 1;
+    updatePrice();
+    if (value < max) {
+      // input.value = value + 1;
+    }
+  });
+
+  // Initial setup
+  updatePrice();
+});
