@@ -151,7 +151,7 @@ h3 {
   height: 48px;
 }
 .btn.btn-lg {
-  height: 54px;
+  height: 48px;
   font-size: var(--fs-base);
 }
 .btn.btn-white {
@@ -654,21 +654,23 @@ body {
 
 /* home page end */
 /* payout page start */
-.payout-wrapper {
-  padding-top: 24px;
-}
-
 .payout-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 24px;
+  padding-bottom: 14px;
+  padding-top: 14px;
 }
 .payout-header .table-info {
   display: flex;
   align-items: center;
   gap: 8px;
   font-weight: 700;
+}
+.payout-header .total-cost {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--c-heading);
 }
 
 .payout-items {
@@ -678,17 +680,28 @@ body {
 }
 
 .payout-single-item {
-  padding: 20px 14px;
+  padding: 14px;
   border-radius: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   background-color: var(--bg-white);
+}
+.payout-single-item__left {
+  display: flex;
+  flex-direction: column;
+}
+.payout-single-item__left .item-name {
+  color: var(--c-heading);
+  font-weight: 600;
+}
+.payout-single-item__left .qty {
+  font-size: 12px;
+  color: #919191;
+  margin-top: 6px;
 }
 .payout-single-item .item-price {
   color: var(--c-heading);
   font-weight: 600;
-  font-size: var(--fs-14);
 }
 
 .additional-title {
@@ -732,6 +745,55 @@ body {
 
 .opacity-0 {
   visibility: hidden;
+}
+
+.tip-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.tip-options label input {
+  display: none;
+}
+.tip-options label input:checked ~ .label {
+  background-color: var(--c-primary);
+  border-color: var(--c-primary);
+  color: var(--c-white);
+}
+.tip-options label .label {
+  border: 1px solid #eeeeee;
+  background-color: rgba(127, 135, 167, 0.1215686275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-heading);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tip-title {
+  font-size: 18px;
+}
+
+.tip-note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: rgba(62, 155, 4, 0.0588235294);
+}
+.tip-note .icon {
+  flex-shrink: 0;
+}
+.tip-note .note {
+  color: #3e9b04;
+  font-size: var(--fs-14);
+  font-weight: 500;
 }
 
 /* payout page end */

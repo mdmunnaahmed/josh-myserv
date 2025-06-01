@@ -195,19 +195,22 @@ body {
 /* home page end */
 
 /* payout page start */
-.payout-wrapper {
-  padding-top: 24px;
-}
 .payout-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 24px;
+  padding-bottom: 14px;
+  padding-top: 14px;
   .table-info {
     display: flex;
     align-items: center;
     gap: 8px;
     font-weight: 700;
+  }
+  .total-cost {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--c-heading);
   }
 }
 .payout-items {
@@ -216,16 +219,27 @@ body {
   gap: 12px;
 }
 .payout-single-item {
-  padding: 20px 14px;
+  padding: 14px;
   border-radius: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   background-color: var(--bg-white);
+  &__left {
+    display: flex;
+    flex-direction: column;
+    .item-name {
+      color: var(--c-heading);
+      font-weight: 600;
+    }
+    .qty {
+      font-size: 12px;
+      color: #919191;
+      margin-top: 6px;
+    }
+  }
   .item-price {
     color: var(--c-heading);
     font-weight: 600;
-    font-size: var(--fs-14);
   }
 }
 .additional-title {
@@ -265,6 +279,54 @@ body {
 }
 .opacity-0 {
   visibility: hidden;
+}
+.tip-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  label {
+    input {
+      display: none;
+      &:checked ~ .label {
+        background-color: var(--c-primary);
+        border-color: var(--c-primary);
+        color: var(--c-white);
+      }
+    }
+    .label {
+      border: 1px solid #eeeeee;
+      background-color: #7f87a71f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 36px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--c-heading);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+  }
+}
+.tip-title {
+  font-size: 18px;
+}
+.tip-note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: #3E9B040F;
+  .icon {
+    flex-shrink: 0;
+  }
+  .note {
+    color: #3e9b04;
+    font-size: var(--fs-14);
+    font-weight: 500;
+  }
 }
 /* payout page end */
 

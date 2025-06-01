@@ -31,9 +31,8 @@
         <h1 class="menu-title">Pay Tab</h1>
         <span class="menu-subtitle">Group Order Code: A51C</span>
       </div>
-      <button class="menu-toggler btn btn-icon">
-        <img src="assets/images/icons/shopping-cart-01.svg" alt="menu toggle" />
-        <span class="float-badge">2</span>
+      <button class="btn btn-icon">
+        <img src="assets/images/icons/share.svg" alt="menu toggle" />
       </button>
     </div>
   </div>
@@ -121,33 +120,51 @@
           <img src="assets/images/icons/restaurant-table.svg" alt="icon" />
           <span>Table 17 </span>
         </div>
-        <button class="btn btn-primary btn-sm">$29.29</button>
+        <span class="total-cost">$29.29</span>
       </div>
 
       <div class="payout-items">
         <div class="payout-single-item">
-          <a href="" class="item-name">Chicken Caesar Salad</a>
+          <div class="payout-single-item__left">
+            <a href="" class="item-name">Chicken Caesar Salad</a>
+            <span class="qty">Table Quantity: 1</span>
+          </div>
           <span class="item-price">$10</span>
         </div>
         <div class="payout-single-item">
-          <a href="" class="item-name">Chocolate Lava Cake</a>
+          <div class="payout-single-item__left">
+            <a href="" class="item-name">Chocolate Lava Cake</a>
+            <span class="qty">Table Quantity: 1</span>
+          </div>
+          <span class="item-price">$15.00</span>
+        </div>
+        <div class="payout-single-item">
+          <div class="payout-single-item__left">
+            <a href="" class="item-name">Patatas Bravas</a>
+            <span class="qty">Table Quantity: 1</span>
+          </div>
+          <span class="item-price">$12.00</span>
+        </div>
+        <div class="payout-single-item">
+          <div class="payout-single-item__left">
+            <a href="" class="item-name">Fries</a>
+            <span class="qty">Table Quantity: 1</span>
+          </div>
+          <span class="item-price">$8.00</span>
+        </div>
+        <div class="payout-single-item">
+          <div class="payout-single-item__left">
+            <a href="" class="item-name">Corona</a>
+            <span class="qty">Table Quantity: 1</span>
+          </div>
           <span class="item-price">$10</span>
         </div>
-      </div>
-
-      <p class="additional-title">Additional Charges <span class="line"></span></p>
-      <div class="additional-charges-wrapper">
-        <div class="d-flex justify-content-between">
-          <span class="charge-for">Restaurant Surcharge</span>
-          <span class="charge">$3.25</span>
-        </div>
-        <div class="d-flex justify-content-between">
-          <span class="charge-for">Taxes</span>
-          <span class="charge">$2.59</span>
-        </div>
-        <div class="d-flex justify-content-between">
-          <span class="charge-for">MyServ Service</span>
-          <span class="charge">$2.50</span>
+        <div class="payout-single-item">
+          <div class="payout-single-item__left">
+            <a href="" class="item-name">Chocolate Lava Cake</a>
+            <span class="qty">Table Quantity: 1</span>
+          </div>
+          <span class="item-price">$32.00</span>
         </div>
       </div>
     </div>
@@ -156,7 +173,7 @@
 
 <div class="container mt-auto bottom-button-wrapper">
   <div class="d-flex" style="gap: 14px">
-    <button class="flex-basis-50 btn btn-lg btn-outline-primary">Split Tab</button>
+    <a href="./tip.html" class="flex-basis-50 btn btn-lg btn-outline-primary">Split Tab</a>
     <button class="flex-basis-50 btn btn-lg btn-primary">Pay Full Tab</button>
   </div>
 </div>

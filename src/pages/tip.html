@@ -4,16 +4,14 @@
 <header class="header-section">
   <div class="container">
     <div class="header-wrapper">
-      <button class="menu-toggler btn btn-icon">
-        <img src="assets/images/icons/menu-01.svg" alt="menu toggle" />
+      <button class="btn btn-icon" onclick="window.history.back()">
+        <img src="assets/images/icons/arrow-left2.svg" alt="menu toggle" />
       </button>
       <div class="d-flex flex-column align-items-center justify-content-center">
-        <h1 class="menu-title">Pay Tab</h1>
+        <h1 class="menu-title">Tip</h1>
         <span class="menu-subtitle">Group Order Code: A51C</span>
       </div>
-      <button class="btn btn-icon">
-        <img src="assets/images/icons/share.svg" alt="menu toggle" />
-      </button>
+      <span style="width: 40px"></span>
     </div>
   </div>
 </header>
@@ -95,56 +93,27 @@
 <main class="main-wrapper">
   <div class="container">
     <div class="payout-wrapper">
-      <div class="payout-header">
-        <div class="table-info">
-          <img src="assets/images/icons/restaurant-table.svg" alt="icon" />
-          <span>Table 17 </span>
-        </div>
-        <span class="total-cost">$29.29</span>
-      </div>
-
-      <div class="payout-items">
-        <div class="payout-single-item">
-          <div class="payout-single-item__left">
-            <a href="" class="item-name">Chicken Caesar Salad</a>
-            <span class="qty">Table Quantity: 1</span>
-          </div>
-          <span class="item-price">$10</span>
-        </div>
-        <div class="payout-single-item">
-          <div class="payout-single-item__left">
-            <a href="" class="item-name">Chocolate Lava Cake</a>
-            <span class="qty">Table Quantity: 1</span>
-          </div>
-          <span class="item-price">$15.00</span>
-        </div>
-        <div class="payout-single-item">
-          <div class="payout-single-item__left">
-            <a href="" class="item-name">Patatas Bravas</a>
-            <span class="qty">Table Quantity: 1</span>
-          </div>
-          <span class="item-price">$12.00</span>
-        </div>
-        <div class="payout-single-item">
-          <div class="payout-single-item__left">
-            <a href="" class="item-name">Fries</a>
-            <span class="qty">Table Quantity: 1</span>
-          </div>
-          <span class="item-price">$8.00</span>
-        </div>
-        <div class="payout-single-item">
-          <div class="payout-single-item__left">
-            <a href="" class="item-name">Corona</a>
-            <span class="qty">Table Quantity: 1</span>
-          </div>
-          <span class="item-price">$10</span>
-        </div>
-        <div class="payout-single-item">
-          <div class="payout-single-item__left">
-            <a href="" class="item-name">Chocolate Lava Cake</a>
-            <span class="qty">Table Quantity: 1</span>
-          </div>
-          <span class="item-price">$32.00</span>
+      <div class="image-content text-center style--two">
+        <img src="assets/images/thumbs/img15.png" alt="thumb" class="mb-3" />
+        <h2>Appreciate your server's help?</h2>
+        <p class="mb-0">Tips are shared with our kitchen and waitstaff team and are greatly apprecaited</p>
+        <div class="tip-options mt-4 pt-2">
+          <label for="id1">
+            <input type="radio" name="tip" id="id1" checked />
+            <span class="label">18%</span>
+          </label>
+          <label for="id2">
+            <input type="radio" name="tip" id="id2" />
+            <span class="label">20%</span>
+          </label>
+          <label for="id3">
+            <input type="radio" name="tip" id="id3" />
+            <span class="label">25%</span>
+          </label>
+          <label for="id4">
+            <input type="radio" name="tip" id="id4" />
+            <span class="label">Custom Tip</span>
+          </label>
         </div>
       </div>
     </div>
@@ -152,10 +121,12 @@
 </main>
 
 <div class="container mt-auto bottom-button-wrapper">
-  <div class="d-flex" style="gap: 14px">
-    <a href="./tip.html" class="flex-basis-50 btn btn-lg btn-outline-primary">Split Tab</a>
-    <button class="flex-basis-50 btn btn-lg btn-primary">Pay Full Tab</button>
+  <h2 class="text-center mt-1 tip-title">Your Tip: $16.00</h2>
+  <div class="tip-note my-3">
+    <img src="assets/images/icons/tip.svg" alt="icon" class="icon" />
+    <span class="note">Tip is based on subtotal of food and not on surcharges or fees</span>
   </div>
+  <button class="btn btn-md btn-primary w-100">Pay Tab</button>
 </div>
 
-@@include('../partial/_footer.html') @@include('../partial/_template-bottom.html')
+@@include('../partial/_template-bottom.html')
