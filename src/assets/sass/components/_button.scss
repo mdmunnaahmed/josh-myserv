@@ -14,6 +14,7 @@
   }
   &.btn-md {
     height: 48px;
+    font-size: 16px;
   }
   &.btn-lg {
     height: 48px;
@@ -23,6 +24,9 @@
   &.btn-white {
     background-color: var(--bg-white);
     color: var(--c-heading);
+  }
+  &.btn-light {
+    background-color: #f0f1f4;
   }
   &.btn-primary {
     border-color: var(--c-primary);
@@ -50,7 +54,7 @@
     svg {
       path {
         stroke: var(--c-white);
-        transition: all .3s ease;
+        transition: all 0.3s ease;
       }
     }
   }
@@ -61,7 +65,7 @@
     svg {
       path {
         stroke: var(--c-success);
-        transition: all .3s ease;
+        transition: all 0.3s ease;
       }
     }
   }

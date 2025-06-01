@@ -853,3 +853,37 @@ ul.bill {
   }
 }
 /* pay page end */
+
+/* post payment page start */
+.receipt-modal {
+  .single-page-inner {
+    margin: auto;
+    width: calc(100% - 32px);
+    border-radius: 16px;
+    background-color: var(--bg-white);
+  }
+  .form-group {
+    position: relative;
+    .pretext {
+      position: absolute;
+      left: 15px;
+      top: 16px;
+    }
+    .form-control {
+      padding-left: 48px;
+      border: none;
+      background-color: var(--bg-light);
+      font-weight: 600;
+      color: var(--c-heading);
+      border-radius: 16px;
+      height: 54px;
+    }
+  }
+  .btn.sent {
+    background-color: #828f98;
+    color: var(--c-white);
+    border-color: #828f98;
+    pointer-events: none;
+  }
+}
+/* post payment page end */

@@ -149,6 +149,7 @@ h3 {
 }
 .btn.btn-md {
   height: 48px;
+  font-size: 16px;
 }
 .btn.btn-lg {
   height: 48px;
@@ -157,6 +158,9 @@ h3 {
 .btn.btn-white {
   background-color: var(--bg-white);
   color: var(--c-heading);
+}
+.btn.btn-light {
+  background-color: #f0f1f4;
 }
 .btn.btn-primary {
   border-color: var(--c-primary);
@@ -1327,3 +1331,35 @@ ul.bill li hr {
 }
 
 /* pay page end */
+/* post payment page start */
+.receipt-modal .single-page-inner {
+  margin: auto;
+  width: calc(100% - 32px);
+  border-radius: 16px;
+  background-color: var(--bg-white);
+}
+.receipt-modal .form-group {
+  position: relative;
+}
+.receipt-modal .form-group .pretext {
+  position: absolute;
+  left: 15px;
+  top: 16px;
+}
+.receipt-modal .form-group .form-control {
+  padding-left: 48px;
+  border: none;
+  background-color: var(--bg-light);
+  font-weight: 600;
+  color: var(--c-heading);
+  border-radius: 16px;
+  height: 54px;
+}
+.receipt-modal .btn.sent {
+  background-color: #828f98;
+  color: var(--c-white);
+  border-color: #828f98;
+  pointer-events: none;
+}
+
+/* post payment page end */
