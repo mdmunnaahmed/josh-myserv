@@ -246,6 +246,7 @@
         </div>
       </div>
       <div class="tab-pane fade" id="Starters">
+        <div class="walkthrough-overlay" id="walkthrough" style="display: none"></div>
         <div class="products-wrapper style--two">
           <div class="product-item style--two">
             <div class="product-item__content">
@@ -261,12 +262,20 @@
               </button>
             </div>
           </div>
-          <div class="product-item style--two">
+          <div class="product-item style--two has-walkthrough">
             <div class="product-item__content">
               <h2 class="title">
                 <a href="">Shishito Peppers</a>
-                <img src="assets/images/icons/camera.svg" alt="" />
-                <img src="assets/images/icons/double-arrow-up.svg" alt="" />
+                <div class="position-relative d-inline-block">
+                  <img src="assets/images/icons/camera.svg" alt="" />
+                  <div class="tooltip-bubble tooltip-bubble3" style="display: none">Click on this icon for a picture of the dish</div>
+                </div>
+
+                <div class="position-relative d-inline-block">
+                  <img src="assets/images/icons/double-arrow-up.svg" alt="" />
+                  <div class="tooltip-bubble tooltip-bubble1" style="display: none">Each icon next to a dish has a special meaning, take a moment to explore them and discover what makes each plate unique!</div>
+                  <div class="tooltip-bubble tooltip-bubble2" style="display: none">Chefs top recommendations</div>
+                </div>
               </h2>
               <p class="short-des">Spiced baby carrots, sweet and sour Pedro Ximénez reduction, orange honey yogurt, mojo verde, Marcona almonds</p>
             </div>
@@ -335,5 +344,33 @@
     </div>
   </div>
 </main>
+
+<!-- walkthrough js -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (!localStorage.getItem("walkthroughShown")) {
+      const overlay = document.getElementById("walkthrough");
+      const bubbles = [document.querySelector(".tooltip-bubble1"), document.querySelector(".tooltip-bubble2"), document.querySelector(".tooltip-bubble3")];
+      let current = 0;
+
+      overlay.style.display = "block";
+      bubbles[current].style.display = "block";
+      document.querySelector('.has-walkthrough').classList.add('active-now');
+
+      overlay.addEventListener("click", () => {
+        bubbles[current].style.display = "none";
+        current++;
+
+        if (current < bubbles.length) {
+          bubbles[current].style.display = "block";
+        } else {
+          overlay.style.display = "none";
+          document.querySelector('.has-walkthrough').classList.remove('active-now');
+          localStorage.setItem("walkthroughShown", "true");
+        }
+      });
+    }
+  });
+</script>
 
 @@include('../partial/_footer.html') @@include('../partial/_template-bottom.html')
