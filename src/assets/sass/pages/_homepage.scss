@@ -794,6 +794,11 @@ ul.bill {
     transform-origin: bottom;
     transition: all 0.3s linear;
   }
+  .pay {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--c-heading);
+  }
 }
 .apple-card {
   display: flex;

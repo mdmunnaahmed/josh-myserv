@@ -1271,6 +1271,11 @@ ul.bill li hr {
   transform-origin: bottom;
   transition: all 0.3s linear;
 }
+.custom-modal .pay {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-heading);
+}
 
 .apple-card {
   display: flex;

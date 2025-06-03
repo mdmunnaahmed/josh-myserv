@@ -96,41 +96,41 @@
 <main class="main-wrapper">
   <div class="container">
     <h2 class="pay-page-title mt-4 mb-4">Choose Your Payment Method</h2>
-    <label class="payment-option">
+    <label class="payment-option" data-modal="applePayModal">
       <label for="applePay">
         <img src="assets/images/icons/apple.svg" alt="icon" />
         <div>
-          <h3 class="title">Apple pay</h3>
+          <h3 class="title">Apple Pay</h3>
           <span>zion@gmail.com</span>
         </div>
       </label>
       <input type="radio" name="doneness" id="applePay" />
     </label>
-    <label class="payment-option">
+    <label class="payment-option" data-modal="googlePayModal">
       <label for="gPay">
         <img src="assets/images/icons/google.svg" alt="icon" />
         <div>
-          <h3 class="title">Apple pay</h3>
+          <h3 class="title">Google Pay</h3>
           <span>zion@gmail.com</span>
         </div>
       </label>
       <input type="radio" name="doneness" id="gPay" checked />
     </label>
-    <label class="payment-option">
+    <label class="payment-option" data-modal="addCardModal">
       <label for="masterCard">
         <img src="assets/images/icons/card.svg" alt="icon" />
         <div>
-          <h3 class="title">Master card</h3>
+          <h3 class="title">Master Card</h3>
           <span>**** **** **** 4444</span>
         </div>
       </label>
       <input type="radio" name="doneness" id="masterCard" />
     </label>
-    <label class="payment-option">
+    <label class="payment-option" data-modal="greenLineRestaurantCardModal">
       <label for="masterCard">
         <img src="assets/images/icons/gift-card.svg" alt="icon" />
         <div>
-          <h3 class="title">Green Line restaurant</h3>
+          <h3 class="title">Green Line Restaurant</h3>
           <span>Gift Card</span>
         </div>
       </label>
@@ -168,7 +168,7 @@
       </ul>
     </div>
 
-    <!-- pay card modal -->
+    <!-- Apple Pay Card Modal -->
     <div class="single-page-wrapper custom-modal" id="applePayModal">
       <div class="single-page-inner pt-3">
         <div class="title-wrapper align-items-center">
@@ -201,14 +201,87 @@
         </div>
       </div>
     </div>
-    <!-- pay card modal -->
+    <!-- Apple Pay Card Modal -->
+
+    <!-- Google Pay Card Modal -->
+    <div class="single-page-wrapper custom-modal" id="googlePayModal">
+      <div class="single-page-inner pt-3">
+        <div class="title-wrapper align-items-center">
+          <div class="d-flex gap-1 align-items-center"><img src="assets/images/icons/g.svg" alt="logo" /> <span class="pay">Pay</span></div>
+          <button class="btn p-0 border-0 modal-close"><img src="assets/images/icons/close-btn.svg" alt="icon" /></button>
+        </div>
+        <div class="apple-card mt-3">
+          <div class="apple-card__left">
+            <img src="assets/images/icons/g.svg" alt="icon" />
+            <h3 class="title">Google Card</h3>
+          </div>
+          <div class="apple-card__right">
+            <a href="" class="py-1 px-2"><img src="assets/images/icons/arrow-right.svg" alt="icon" /></a>
+          </div>
+        </div>
+        <div class="apple-card style--two mt-3">
+          <div class="apple-card__left">
+            <p>Pay Green Line Restaurant</p>
+            <h3 class="title">$89.60</h3>
+          </div>
+          <div class="apple-card__right">
+            <a href="" class="p-1"><img src="assets/images/icons/arrow-right.svg" alt="icon" /></a>
+          </div>
+        </div>
+        <div class="apple-card style--three">
+          <div class="apple-card__left">
+            <img src="assets/images/icons/side-btn.svg" alt="icon" />
+            <h3 class="title">Confirm with Side Button</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Google Pay Card Modal -->
+
+    <!-- Add Card Modal -->
+    <div class="single-page-wrapper custom-modal" id="addCardModal">
+      <div class="single-page-inner pt-3 pb-3">
+        <div class="title-wrapper">
+          <button class="back-btn modal-close"><img src="assets/images/icons/arrow-left.svg" alt="icon" /></button>
+          <h2 class="title">Add Card</h2>
+          <span style="width: 24px"></span>
+        </div>
+        <form action="" class="add-card-form mt-4">
+          <div class="form-group mb-3">
+            <img src="assets/images/icons/user.svg" alt="icon" />
+            <input type="text" class="form-control" placeholder="Card Holder Name" />
+          </div>
+          <div class="form-group mb-3">
+            <img src="assets/images/icons/credit-card.svg" alt="icon" />
+            <input type="tel" class="form-control" placeholder="Credit Card Number" />
+          </div>
+          <div class="row gy-3">
+            <div class="col-6">
+              <div class="form-group">
+                <img src="assets/images/icons/square-lock-01.svg" alt="icon" />
+                <input type="tel" class="form-control" placeholder="CVV" />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <img src="assets/images/icons/credit-card.svg" alt="icon" />
+                <input type="text" class="form-control" placeholder="Exp. Date" />
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-column gap-2 mt-4 pt-3">
+            <button type="submit" class="btn btn-md btn-primary">Confirm</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Add Card Modal -->
   </div>
 </main>
 
 <div class="container mt-auto bottom-button-wrapper">
   <div class="d-flex flex-column gap-2">
-    <button type="button" class="btn btn-md btn-primary" data-modal="applePayModal">Pay With Apple Pay</button>
-
+    <button type="button" class="btn btn-md btn-primary">Pay With Apple Pay</button>
     <p class="fw-medium powered-by text-center mb-0 mt-2">Powered securely by MyServ</p>
     <p class="term-and-policy text-center m-0">Using the <span class="fw-medium">MyServ</span> app means you agree to our <a href="">terms of use</a> and how we handle your personal data, as detailed in our <a href="">privacy policy</a>. The restaurant you're using the app for will receive the information we collect.</p>
   </div>
