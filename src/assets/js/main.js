@@ -217,3 +217,24 @@ document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
   // Initial setup
   updatePrice();
 });
+
+// share btn click func
+document.addEventListener("DOMContentLoaded", function () {
+  const shareBtn = document.querySelector(".share-btn");
+
+  shareBtn?.addEventListener("click", async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "Group Order",
+          text: "Join my group order!",
+          url: window.location.href, // or your custom URL
+        });
+      } catch (err) {
+        console.error("Share canceled or failed:", err);
+      }
+    } else {
+      alert("Sharing is not supported on this device/browser.");
+    }
+  });
+});

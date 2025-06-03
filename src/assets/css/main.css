@@ -1073,7 +1073,7 @@ body {
   padding: 8px;
   background-color: var(--bg-white);
   align-items: center;
-  min-width: 270px;
+  min-width: 85%;
 }
 .floating-notification__content {
   display: flex;
@@ -1090,6 +1090,17 @@ body {
 .floating-notification .undo-btn {
   color: var(--c-primary);
   height: auto;
+}
+
+.floating-notification {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.floating-notification.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* cart page end */
@@ -1193,6 +1204,9 @@ body {
   background-color: rgba(127, 135, 167, 0.1215686275);
   border: none;
   border-radius: 12px;
+  font-size: var(--fs-20);
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .powered-by {

@@ -602,7 +602,7 @@ body {
   padding: 8px;
   background-color: var(--bg-white);
   align-items: center;
-  min-width: 270px;
+  min-width: 85%;
   &__content {
     display: flex;
     justify-content: space-between;
@@ -620,6 +620,16 @@ body {
     height: auto;
   }
 }
+.floating-notification {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.floating-notification.show {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* cart page end */
 
 /* common single page start */
@@ -720,6 +730,9 @@ body {
     background-color: #7f87a71f;
     border: none;
     border-radius: 12px;
+    font-size: var(--fs-20);
+    font-weight: 600;
+    text-transform: uppercase;
   }
 }
 .powered-by {

@@ -8,9 +8,9 @@
         <img src="assets/images/icons/menu-01.svg" alt="menu toggle" />
       </button>
       <div class="d-flex flex-column align-items-center justify-content-center">
-        <h1 class="menu-title">Start Group order</h1>
+        <h1 class="menu-title">Join Group Order</h1>
       </div>
-      <button class="btn btn-icon">
+      <button class="btn btn-icon" onclick="window.history.back()">
         <img src="assets/images/icons/times.svg" alt="menu toggle" />
       </button>
     </div>
@@ -94,7 +94,7 @@
 <main class="main-wrapper">
   <div class="container">
     <div class="image-content text-center style--two">
-      <img src="assets/images/thumbs/img13.png" alt="thumb" class="mb-3" />
+      <img src="assets/images/thumbs/img14.png" alt="thumb" class="mb-3" />
       <h2>Join Group Order</h2>
       <p class="mb-0">Ask your Party Captain for your group order code at the top of their screen</p>
       <div class="code-wrapper">
@@ -106,6 +106,31 @@
     </div>
   </div>
 </main>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const inputs = document.querySelectorAll(".code-wrapper input");
+
+    inputs.forEach((input, index) => {
+      input.addEventListener("input", (e) => {
+        const value = e.target.value; // only digits
+        e.target.value = value.charAt(0); // only 1 digit
+        if (value && inputs[index + 1]) {
+          inputs[index + 1].focus();
+        }
+      });
+
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Backspace" && !input.value && inputs[index - 1]) {
+          inputs[index - 1].focus();
+        } else if (e.key === "ArrowLeft" && inputs[index - 1]) {
+          inputs[index - 1].focus();
+        } else if (e.key === "ArrowRight" && inputs[index + 1]) {
+          inputs[index + 1].focus();
+        }
+      });
+    });
+  });
+</script>
 
 <div class="container mt-auto bottom-button-wrapper">
   <div class="d-flex flex-column gap-2">

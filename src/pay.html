@@ -24,17 +24,14 @@
 <header class="header-section">
   <div class="container">
     <div class="header-wrapper">
-      <button class="menu-toggler btn btn-icon">
-        <img src="assets/images/icons/menu-01.svg" alt="menu toggle" />
+      <button class="btn btn-icon" onclick="window.history.back()">
+        <img src="assets/images/icons/arrow-left2.svg" alt="menu toggle" />
       </button>
       <div class="d-flex flex-column align-items-center justify-content-center">
-        <h1 class="menu-title">Active Cart</h1>
+        <h1 class="menu-title">Pay</h1>
         <span class="menu-subtitle">Group Order Code: A51C</span>
       </div>
-      <button class="btn btn-icon">
-        <img src="assets/images/icons/shopping-cart-01.svg" alt="menu toggle" />
-        <span class="float-badge">2</span>
-      </button>
+      <span style="width: 40px"></span>
     </div>
   </div>
 </header>
@@ -121,7 +118,6 @@
         <img src="assets/images/icons/apple.svg" alt="icon" />
         <div>
           <h3 class="title">Apple Pay</h3>
-          <span>zion@gmail.com</span>
         </div>
       </label>
       <input type="radio" name="doneness" id="applePay" />
@@ -131,7 +127,6 @@
         <img src="assets/images/icons/google.svg" alt="icon" />
         <div>
           <h3 class="title">Google Pay</h3>
-          <span>zion@gmail.com</span>
         </div>
       </label>
       <input type="radio" name="doneness" id="gPay" checked />
@@ -140,21 +135,19 @@
       <label for="masterCard">
         <img src="assets/images/icons/card.svg" alt="icon" />
         <div>
-          <h3 class="title">Master Card</h3>
-          <span>**** **** **** 4444</span>
+          <h3 class="title">Credit / Debit Card</h3>
         </div>
       </label>
       <input type="radio" name="doneness" id="masterCard" />
     </label>
     <label class="payment-option" data-modal="greenLineRestaurantCardModal">
-      <label for="masterCard">
+      <label for="GLR">
         <img src="assets/images/icons/gift-card.svg" alt="icon" />
         <div>
           <h3 class="title">Green Line Restaurant</h3>
-          <span>Gift Card</span>
         </div>
       </label>
-      <input type="radio" name="doneness" id="masterCard" />
+      <input type="radio" name="doneness" id="GLR" />
     </label>
 
     <p class="options-title mt-4 mb-3">Summary bill <span class="line"></span></p>
@@ -301,11 +294,34 @@
 
 <div class="container mt-auto bottom-button-wrapper">
   <div class="d-flex flex-column gap-2">
-    <button type="button" class="btn btn-md btn-primary">Pay With Apple Pay</button>
+    <button type="button" class="btn btn-md btn-primary payment-btn">Pay With Apple Pay</button>
     <p class="fw-medium powered-by text-center mb-0 mt-2">Powered securely by MyServ</p>
     <p class="term-and-policy text-center m-0">Using the <span class="fw-medium">MyServ</span> app means you agree to our <a href="">terms of use</a> and how we handle your personal data, as detailed in our <a href="">privacy policy</a>. The restaurant you're using the app for will receive the information we collect.</p>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const paymentOptions = document.querySelectorAll(".payment-option input[type='radio']");
+    const payButton = document.querySelector(".payment-btn");
+
+    function updatePayButton() {
+      const selected = document.querySelector(".payment-option input[type='radio']:checked");
+      if (selected) {
+        const parent = selected.closest(".payment-option");
+        const title = parent.querySelector(".title")?.textContent.trim();
+        payButton.textContent = `Pay with ${title}`;
+      }
+    }
+
+    paymentOptions.forEach((input) => {
+      input.addEventListener("change", updatePayButton);
+    });
+
+    // Initial load
+    updatePayButton();
+  });
+</script>
 
 <!-- jQuery library -->
 <script src="assets/js/lib/jquery-3.7.1.min.js"></script>

@@ -124,9 +124,9 @@
           <div class="price">$16.00</div>
         </div>
         <div class="counter">
-          <button class="btn p-0 border-0 minus"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
+          <button class="btn p-0 border-0 minus2"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
           <input type="text" class="value bg-transparent" value="1" />
-          <button class="btn p-0 border-0 plus"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
+          <button class="btn p-0 border-0 plus2"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
         </div>
       </div>
       <div class="cart-item">
@@ -138,9 +138,9 @@
           <div class="price">$8.00</div>
         </div>
         <div class="counter">
-          <button class="btn p-0 border-0 minus"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
+          <button class="btn p-0 border-0 minus2"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
           <input type="text" class="value bg-transparent" value="1" />
-          <button class="btn p-0 border-0 plus"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
+          <button class="btn p-0 border-0 plus2"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
         </div>
       </div>
       <div class="cart-item">
@@ -152,9 +152,9 @@
           <div class="price">$6.00</div>
         </div>
         <div class="counter">
-          <button class="btn p-0 border-0 minus"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
+          <button class="btn p-0 border-0 minus2"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
           <input type="text" class="value bg-transparent" value="1" />
-          <button class="btn p-0 border-0 plus"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
+          <button class="btn p-0 border-0 plus2"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
         </div>
       </div>
 
@@ -190,6 +190,99 @@
     </button>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cartWrapper = document.querySelector(".cart-items-wrapper");
+    const notification = document.querySelector(".floating-notification");
+    const undoBtn = document.querySelector(".undo-btn");
+    const totalDisplay = document.querySelector(".add-to-cart-btn span");
+
+    let lastRemoved = null;
+
+    function parsePrice(text) {
+      return parseFloat(text.replace(/[^0-9.]/g, "")) || 0;
+    }
+
+    function updateTotal() {
+      let total = 0;
+      document.querySelectorAll(".cart-item").forEach((item) => {
+        const priceEl = item.querySelector(".price");
+        const input = item.querySelector(".value");
+        if (priceEl && input) {
+          const price = parsePrice(priceEl.textContent);
+          const qty = parseInt(input.value) || 0;
+          total += price * qty;
+        }
+      });
+      totalDisplay.textContent = `$${total.toFixed(2)}`;
+    }
+
+    function showNotification(itemTitle) {
+      notification.querySelector(".title").textContent = `${itemTitle} removed`;
+      notification.classList.add("show");
+      setTimeout(() => {
+        notification.classList.remove("show");
+      }, 4000);
+    }
+
+    function attachEvents(cartItem) {
+      const minusBtn = cartItem.querySelector(".minus2");
+      const plusBtn = cartItem.querySelector(".plus2");
+      const input = cartItem.querySelector(".value");
+
+      minusBtn?.addEventListener("click", () => {
+        let qty = parseInt(input.value) || 1;
+        qty = Math.max(0, qty - 1);
+        input.value = qty;
+
+        if (qty === 0) {
+          lastRemoved = {
+            element: cartItem,
+            index: [...cartWrapper.children].indexOf(cartItem),
+            html: cartItem.outerHTML,
+          };
+          const title = cartItem.querySelector(".title")?.textContent || "Item";
+          cartItem.remove();
+          showNotification(title);
+        }
+
+        updateTotal();
+      });
+
+      plusBtn?.addEventListener("click", () => {
+        let qty = parseInt(input.value) || 1;
+        input.value = qty + 1;
+        updateTotal();
+      });
+    }
+
+    // Initial attach
+    document.querySelectorAll(".cart-item").forEach(attachEvents);
+    updateTotal();
+
+    undoBtn?.addEventListener("click", () => {
+      if (lastRemoved) {
+        const temp = document.createElement("div");
+        temp.innerHTML = lastRemoved.html;
+        const restoredItem = temp.firstElementChild;
+        const children = [...cartWrapper.children];
+        const index = lastRemoved.index;
+
+        if (index >= children.length) {
+          cartWrapper.appendChild(restoredItem);
+        } else {
+          cartWrapper.insertBefore(restoredItem, children[index]);
+        }
+
+        attachEvents(restoredItem);
+        lastRemoved = null;
+        notification.classList.remove("show");
+        updateTotal();
+      }
+    });
+  });
+</script>
 
 <!-- jQuery library -->
 <script src="assets/js/lib/jquery-3.7.1.min.js"></script>
