@@ -263,5 +263,19 @@
     });
   });
 </script>
+<!-- active-cart.html -->
+<script>
+  const placeOrderBtn = document.querySelector(".add-to-cart-btn");
+  placeOrderBtn?.addEventListener("click", () => {
+    const amountText = placeOrderBtn.querySelector("span")?.textContent || "$0";
+    const amount = parseFloat(amountText.replace("$", "")) || 0;
+
+    // Save to localStorage
+    localStorage.setItem("cartAmount", amount);
+
+    // Redirect to the tip page
+    window.location.href = "tip.html";
+  });
+</script>
 
 @@include('../partial/_template-bottom.html')

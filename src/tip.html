@@ -141,7 +141,7 @@
       <!-- Custom Tip Input -->
       <div class="form-group custom-tip-input" style="display: none">
         <span class="pretext"><img src="assets/images/icons/s.svg" alt="$" /></span>
-        <input type="tel" class="form-control" />
+        <input type="tel" class="form-control" id="custom-tip-value" maxlength="6" />
       </div>
 
       <!-- Script (place this before </body> or after the above HTML) -->
@@ -179,6 +179,72 @@
   </div>
   <button class="btn btn-md btn-primary w-100">Pay Tab</button>
 </div>
+
+<!-- tip.html -->
+<script>
+  const tipTitle = document.querySelector(".tip-title");
+  const radios = document.querySelectorAll('input[name="tip"]');
+  const customTipInput = document.getElementById("custom-tip-value");
+  const customTipWrapper = document.querySelector(".custom-tip-input");
+
+  const baseAmount = parseFloat(localStorage.getItem("cartAmount")) || 0;
+
+  function calculateTip(percent) {
+    const tip = (baseAmount * percent) / 100;
+    tipTitle.textContent = `Your Tip: $${tip.toFixed(2)}`;
+  }
+
+  // Format number with commas and max 2 decimals
+  function formatAmount(value) {
+    const parts = value.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    if (parts[1]) {
+      parts[1] = parts[1].slice(0, 2); // max two decimals
+    }
+    return parts.join(".");
+  }
+
+  radios.forEach((radio) => {
+    radio.addEventListener("change", () => {
+      if (radio.id === "custom-tip") {
+        customTipWrapper.style.display = "flex";
+        customTipInput.value = "";
+        tipTitle.textContent = `Your Tip: $${customTipInput.value}`;
+      } else {
+        customTipWrapper.style.display = "none";
+        if (radio.id === "tip-18") calculateTip(18);
+        else if (radio.id === "tip-20") calculateTip(20);
+        else if (radio.id === "tip-25") calculateTip(25);
+      }
+    });
+  });
+
+  customTipInput.addEventListener("input", () => {
+    let raw = customTipInput.value.replace(/[^\d.]/g, ""); // allow digits + dot
+    const parts = raw.split(".");
+
+    if (parts.length > 2) raw = parts[0] + "." + parts[1]; // only keep first decimal
+
+    if (parts[1]?.length > 2) {
+      raw = parts[0] + "." + parts[1].slice(0, 2); // limit decimals to 2
+    }
+    if (raw > 999) {
+      raw = 0;
+    }
+
+    if (raw) {
+      const formatted = formatAmount(raw);
+      customTipInput.value = formatted;
+    } else {
+      customTipInput.value = "";
+    }
+
+    tipTitle.textContent = `Your Tip: $${customTipInput.value}`; // Always blank out the tip title
+  });
+
+  // Default to 18%
+  calculateTip(18);
+</script>
 
 <!-- jQuery library -->
 <script src="assets/js/lib/jquery-3.7.1.min.js"></script>
