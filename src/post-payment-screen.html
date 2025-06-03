@@ -74,20 +74,35 @@
         Enter your email to get a copy of <br />
         your receipt
       </h2>
-      <div class="form-group mt-4">
-        <span class="pretext"><img src="assets/images/icons/email2.svg" alt="$" /></span>
-        <input type="tel" class="form-control" placeholder="zion@gmail.com" />
-      </div>
-      <button type="submit" class="btn btn-md btn-primary w-100 mt-4" id="email-receipt-btn">Email Receipt</button>
-
+      <form action="">
+        <div class="form-group mt-4">
+          <span class="pretext"><img src="assets/images/icons/email2.svg" alt="$" /></span>
+          <input type="email" class="form-control" placeholder="example@example.com" id="email" />
+        </div>
+        <button type="submit" class="btn btn-md btn-primary w-100 mt-4" id="email-receipt-btn">Email Receipt</button>
+      </form>
       <script>
         document.addEventListener("DOMContentLoaded", () => {
           const sendBtn = document.querySelector("#email-receipt-btn");
+          const emailInput = document.querySelector("#email");
           const originalText = sendBtn?.textContent;
+
+          function isValidEmail(email) {
+            // Basic email validation regex
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+          }
 
           sendBtn?.addEventListener("click", (e) => {
             e.preventDefault();
+            const email = emailInput.value.trim();
 
+            if (!isValidEmail(email)) {
+              alert("Please enter a valid email address.");
+              emailInput.focus();
+              return;
+            }
+
+            // Simulate sending...
             setTimeout(() => {
               sendBtn.classList.add("sent");
               sendBtn.textContent = "Sent!";
@@ -96,6 +111,7 @@
               setTimeout(() => {
                 sendBtn.classList.remove("sent");
                 sendBtn.textContent = originalText;
+                document.querySelector("#email-receipt-modal").classList.remove("show");
               }, 5000);
             }, 500);
           });
@@ -116,21 +132,57 @@
       <img src="assets/images/thumbs/img19.png" alt="icon" />
       <h2 class="mt-3 pb-1">
         Enter your phone number to get a <br />
-        text message of your receip
+        text message of your receipt
       </h2>
-      <div class="form-group mt-4">
-        <span class="pretext"><img src="assets/images/icons/phone.svg" alt="$" /></span>
-        <input type="tel" class="form-control" placeholder="123-456-7890" />
-      </div>
-      <button type="submit" class="btn btn-md btn-primary w-100 mt-4" id="text-receipt-btn">Text Receipt</button>
+      <form action="">
+        <div class="form-group mt-4">
+          <span class="pretext"><img src="assets/images/icons/phone.svg" alt="$" /></span>
+          <input type="tel" class="form-control" placeholder="123-456-7890" id="phone-number" />
+        </div>
+        <button type="submit" class="btn btn-md btn-primary w-100 mt-4" id="text-receipt-btn">Text Receipt</button>
+      </form>
 
       <script>
         document.addEventListener("DOMContentLoaded", () => {
           const sendBtn = document.querySelector("#text-receipt-btn");
+          const phoneInput = document.querySelector("#phone-number");
           const originalText = sendBtn?.textContent;
+
+          // Format input as xxx-xxx-xxxx while typing
+          phoneInput.addEventListener("input", (e) => {
+            let val = phoneInput.value;
+
+            // Remove all non-digit characters
+            val = val.replace(/\D/g, "");
+
+            // Limit max 10 digits
+            if (val.length > 10) val = val.slice(0, 10);
+
+            // Add dashes after 3rd and 6th digit
+            if (val.length > 6) {
+              val = val.replace(/(\d{3})(\d{3})(\d+)/, "$1-$2-$3");
+            } else if (val.length > 3) {
+              val = val.replace(/(\d{3})(\d+)/, "$1-$2");
+            }
+
+            phoneInput.value = val;
+          });
+
+          function isValidPhone(phone) {
+            // Validate strict xxx-xxx-xxxx format
+            const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
+            return phoneRegex.test(phone);
+          }
 
           sendBtn?.addEventListener("click", (e) => {
             e.preventDefault();
+            const phone = phoneInput.value.trim();
+
+            if (!isValidPhone(phone)) {
+              alert("Please enter a valid phone number in the format xxx-xxx-xxxx.");
+              phoneInput.focus();
+              return;
+            }
 
             setTimeout(() => {
               sendBtn.classList.add("sent");
@@ -140,6 +192,7 @@
               setTimeout(() => {
                 sendBtn.classList.remove("sent");
                 sendBtn.textContent = originalText;
+                document.querySelector("#text-receipt-modal")?.classList.remove("show");
               }, 5000);
             }, 500);
           });
