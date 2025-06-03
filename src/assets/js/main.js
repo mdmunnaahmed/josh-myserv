@@ -167,6 +167,9 @@ document.querySelectorAll(".text-shift-counter").forEach((counter) => {
 
   plus.addEventListener("click", () => {
     if (currentIndex < values.length - 1) {
+      if (currentIndex == 0) {
+        currentIndex = 1;
+      }
       currentIndex++;
       updateDisplay();
     }

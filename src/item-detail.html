@@ -31,10 +31,10 @@
         <h1 class="menu-title">Item Detail</h1>
         <span class="menu-subtitle">Group Order Code: A51C</span>
       </div>
-      <button class="btn btn-icon">
-        <img src="assets/images/icons/shopping-cart-01.svg" alt="menu toggle" />
+      <a href="./active-cart.html" class="btn btn-icon">
+        <img src="assets/images/icons/shopping-cart-01.svg" alt="icon" />
         <span class="float-badge">2</span>
-      </button>
+      </a>
     </div>
   </div>
 </header>
@@ -173,9 +173,9 @@
         </div>
         <div class="selection-item__right">
           <div class="counter">
-            <button class="btn p-0 border-0 minus"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
+            <button class="btn p-0 border-0 minus3"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
             <input type="text" class="value" value="1" readonly />
-            <button class="btn p-0 border-0 plus"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
+            <button class="btn p-0 border-0 plus3"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
           </div>
           <div class="item-price">+$1.00</div>
         </div>
@@ -190,9 +190,9 @@
         </div>
         <div class="selection-item__right">
           <div class="counter">
-            <button class="btn p-0 border-0 minus"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
+            <button class="btn p-0 border-0 minus3"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
             <input type="text" class="value" value="0" readonly />
-            <button class="btn p-0 border-0 plus"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
+            <button class="btn p-0 border-0 plus3"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
           </div>
           <div class="item-price">+$1.00</div>
         </div>
@@ -207,9 +207,9 @@
         </div>
         <div class="selection-item__right">
           <div class="counter">
-            <button class="btn p-0 border-0 minus"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
+            <button class="btn p-0 border-0 minus3"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
             <input type="text" class="value" value="0" readonly />
-            <button class="btn p-0 border-0 plus"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
+            <button class="btn p-0 border-0 plus3"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
           </div>
           <div class="item-price">+$1.00</div>
         </div>
@@ -459,12 +459,6 @@
 
     const basePrice = parsePrice(basePriceEl.textContent);
 
-    // Store info about each selection item for price calculation
-    // We will process 3 types:
-    // 1) Checkboxes with counters (Add Patty, Add Bacon, Add Egg)
-    // 2) Toppings with checkbox + text-shift counter (None, Light, Standard, Extra)
-    // 3) Sides with checkbox only and fixed price or Included
-
     // Step 1: Handle checkbox + numeric counter selections
     const selectionItemsWithCounter = $$(".selection-item").filter((item) => {
       return item.querySelector(".form-check-input") && item.querySelector(".counter input.value");
@@ -482,28 +476,21 @@
       return !item.querySelector(".counter") && item.querySelector(".item-price");
     });
 
-    // Prices per item are assumed from the .item-price text
-    // For toppings, price per level (assumed all +$1.00 for any level except None)
-    // For add-ons, price per unit from .item-price text (usually +$1.00)
-    // For sides, price from .item-price text or "Included" means zero cost
-
-    // === Helper Functions ===
-
     // Enable or disable plus/minus buttons and input readonly for checkbox items
     function setCounterEnabled(item, enabled) {
-      const minusBtn = item.querySelector(".counter .minus");
-      const plusBtn = item.querySelector(".counter .plus");
+      const minusBtn = item.querySelector(".counter .minus3");
+      const plusBtn = item.querySelector(".counter .plus3");
       const valueInput = item.querySelector(".counter input.value");
 
       if (!minusBtn || !plusBtn || !valueInput) return;
 
       if (enabled) {
-        minusBtn.disabled = false;
-        plusBtn.disabled = false;
+        // minusBtn.disabled = false;
+        // plusBtn.disabled = false;
         valueInput.readOnly = true;
       } else {
-        minusBtn.disabled = true;
-        plusBtn.disabled = true;
+        // minusBtn.disabled = true;
+        // plusBtn.disabled = true;
         valueInput.readOnly = true;
         valueInput.value = "0";
       }
@@ -541,20 +528,14 @@
 
     // Disable/enable toppings counters based on checkbox
     function setToppingEnabled(item, enabled) {
+      const checkbox = item.querySelector(".form-check-input");
       const minusBtn = item.querySelector(".counter .btn:first-child");
       const plusBtn = item.querySelector(".counter .btn:last-child");
-      if (!minusBtn || !plusBtn) return;
-
+      if (!checkbox || !minusBtn || !plusBtn) return;
+      
       if (enabled) {
-        minusBtn.disabled = false;
-        plusBtn.disabled = false;
-        // If current selected is None (0), switch to Standard (2) by default
-        const qty = getToppingQuantity(item);
-        if (qty === 0) updateToppingSelected(item, 2);
-      } else {
-        minusBtn.disabled = true;
-        plusBtn.disabled = true;
-        updateToppingSelected(item, 0);
+        updateToppingSelected(item, 2);
+        checkbox.checked = true;
       }
     }
 
@@ -582,13 +563,10 @@
 
       // 2) Toppings with checkbox + text-shift counter
       toppingsItems.forEach((item) => {
-        // const checkbox = item.querySelector(".form-check-input");
-        // ignore checkbox.checked here
-        const selectedText = item.querySelector(".counter span.value.selected")?.textContent.trim();
-        console.log(!selectedText === "None");
-
+        const checkbox = item.querySelector(".form-check-input");
         const level = getToppingQuantity(item);
-        if (level > 0) {
+
+        if (checkbox.checked && level > 0) {
           const priceText = item.querySelector(".item-price")?.textContent || "";
           const price = parseAddonPrice(priceText);
           if (!isNaN(price)) {
@@ -621,20 +599,20 @@
     // === Event Listeners ===
 
     // 1) Add to Cart quantity plus/minus buttons
-    const addToCartMinus = $(".add-to-cart-btn .minus");
-    const addToCartPlus = $(".add-to-cart-btn .plus");
+    const addToCartMinus = $(".add-to-cart-btn .minus3");
+    const addToCartPlus = $(".add-to-cart-btn .plus3");
 
     if (addToCartMinus && addToCartPlus && addToCartQuantityInput) {
       addToCartMinus.addEventListener("click", () => {
         let val = parseInt(addToCartQuantityInput.value) || 1;
-        if (val > 1);
+        if (val > 1) val--;
         addToCartQuantityInput.value = val;
         calculateTotal();
       });
 
       addToCartPlus.addEventListener("click", () => {
         let val = parseInt(addToCartQuantityInput.value) || 1;
-        // val++;
+        val++;
         addToCartQuantityInput.value = val;
         calculateTotal();
       });
@@ -643,19 +621,28 @@
     // 2) For add-ons with checkbox + numeric counters
     selectionItemsWithCounter.forEach((item) => {
       const checkbox = item.querySelector(".form-check-input");
-      const minusBtn = item.querySelector(".counter .minus");
-      const plusBtn = item.querySelector(".counter .plus");
+      const minusBtn = item.querySelector(".counter .minus3");
+      const plusBtn = item.querySelector(".counter .plus3");
       const valueInput = item.querySelector(".counter input.value");
 
       if (!checkbox || !minusBtn || !plusBtn || !valueInput) return;
 
       // Enable or disable counter based on checkbox checked state
       function updateCounterState() {
-        setCounterEnabled(item, checkbox.checked);
+        const isChecked = checkbox.checked;
+        setCounterEnabled(item, isChecked);
+        if (isChecked && parseInt(valueInput.value) === 0) {
+          valueInput.value = "1"; // Default to 1 when checked
+        }
       }
       updateCounterState();
 
       checkbox.addEventListener("change", () => {
+        if (checkbox.checked) {
+          valueInput.value = "1"; // Default to 1 when checked
+        } else {
+          valueInput.value = "0"; // Reset to 0 when unchecked
+        }
         updateCounterState();
         calculateTotal();
       });
@@ -663,16 +650,24 @@
       minusBtn.addEventListener("click", () => {
         let val = parseInt(valueInput.value) || 0;
         if (val > 0) {
-          // val--;
-          // valueInput.value = val;
+          val--;
+          valueInput.value = val;
+          if (val === 0) {
+            item.classList.add("inactive");
+            checkbox.checked = false;
+            setCounterEnabled(item, false);
+          }
           calculateTotal();
         }
       });
 
       plusBtn.addEventListener("click", () => {
         let val = parseInt(valueInput.value) || 0;
-        // val++;
-        // valueInput.value = val;
+        val++;
+        item.classList.remove("inactive");
+        valueInput.value = val;
+        checkbox.checked = true;
+        setCounterEnabled(item, true);
         calculateTotal();
       });
     });
@@ -687,7 +682,8 @@
 
       // Enable or disable topping counters based on checkbox
       function updateToppingState() {
-        setToppingEnabled(item, checkbox.checked);
+        const isChecked = checkbox.checked;
+        setToppingEnabled(item, isChecked);
       }
       updateToppingState();
 
@@ -699,7 +695,13 @@
       minusBtn.addEventListener("click", () => {
         let currentLevel = getToppingQuantity(item);
         if (currentLevel > 0) {
-          updateToppingSelected(item, currentLevel - 1);
+          const newLevel = currentLevel - 1;
+          updateToppingSelected(item, newLevel);
+          if (newLevel === 0) {
+            checkbox.checked = false;
+            setToppingEnabled(item, false);
+            item.classList.add('inactive')
+          }
           calculateTotal();
         }
       });
@@ -707,7 +709,10 @@
       plusBtn.addEventListener("click", () => {
         let currentLevel = getToppingQuantity(item);
         if (currentLevel < 3) {
-          updateToppingSelected(item, currentLevel + 1);
+          const newLevel = currentLevel + 1;
+          updateToppingSelected(item, newLevel);
+          checkbox.checked = true;
+          setToppingEnabled(item, true);
           calculateTotal();
         }
       });
@@ -719,8 +724,6 @@
       if (!checkbox) return;
       checkbox.addEventListener("change", calculateTotal);
     });
-
-    // 5) Radio buttons for temperature don't affect price, no need to listen
 
     // Initial calculation on load
     calculateTotal();

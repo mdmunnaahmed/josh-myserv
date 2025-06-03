@@ -11,9 +11,9 @@
         <h1 class="menu-title">Active Cart</h1>
         <span class="menu-subtitle">Group Order Code: A51C</span>
       </div>
-      <button class="btn btn-icon">
+      <a href="./start-group-order.html" class="btn btn-icon">
         <img src="assets/images/icons/share.svg" alt="menu toggle" />
-      </button>
+      </a>
     </div>
   </div>
 </header>
@@ -153,7 +153,7 @@
       </div>
 
       <div class="text-center mt-4">
-        <a href="" class="btn add-more-item-btn">
+        <a href="./menu-and-order.html" class="btn add-more-item-btn">
           <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8.5 2.66666V13.3333" stroke="#2DA0ED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M3.16663 8H13.8333" stroke="#2DA0ED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -178,10 +178,10 @@
 
 <div class="container mt-auto bottom-button-wrapper">
   <div class="d-flex flex-column gap-2">
-    <button type="button" class="btn btn-md btn-primary add-to-cart-btn">
+    <a href="./pre-auth.html" class="btn btn-md btn-primary add-to-cart-btn">
       Place Order
       <span>$30.00</span>
-    </button>
+    </a>
   </div>
 </div>
 
@@ -212,12 +212,20 @@
       totalDisplay.textContent = `$${total.toFixed(2)}`;
     }
 
+    let timeoutId = null;
+
     function showNotification(itemTitle) {
       notification.querySelector(".title").textContent = `${itemTitle} removed`;
       notification.classList.add("show");
-      setTimeout(() => {
+
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+
+      timeoutId = setTimeout(() => {
         notification.classList.remove("show");
-      }, 4000);
+        timeoutId = null;
+      }, 5000);
     }
 
     function attachEvents(cartItem) {

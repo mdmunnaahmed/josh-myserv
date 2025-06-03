@@ -902,9 +902,6 @@ body {
 .selection-item.selection-item.inactive .selection-item__right {
   opacity: 0.5;
 }
-.selection-item.selection-item.inactive .selection-item__right .counter {
-  pointer-events: none;
-}
 .selection-item__left {
   display: flex;
   align-items: center;
@@ -1039,7 +1036,7 @@ body {
   object-fit: cover;
 }
 .cart-item__content {
-  max-width: 150px;
+  max-width: 180px;
 }
 .cart-item__content .title {
   font-size: 16px;
