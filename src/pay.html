@@ -73,7 +73,7 @@
     <div class="link-title">Info <span class="line"></span></div>
     <ul class="menu-links">
       <li>
-        <a href="./menu-and-order.html#Starters">
+        <a href="./menu-and-order.html#Starters" onclick="restartWalkthrough(event)">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.6666 14.9998V8.33312C16.6666 6.76177 16.6666 5.97609 16.1785 5.48794C15.6903 4.99979 14.9046 4.99979 13.3333 4.99979H3.33331V14.9998C3.33331 16.5712 3.33331 17.3568 3.82147 17.845C4.30962 18.3332 5.0953 18.3332 6.66665 18.3332H13.3333C14.9046 18.3332 15.6903 18.3332 16.1785 17.845C16.6666 17.3568 16.6666 16.5712 16.6666 14.9998Z" stroke="#212121" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M10 9.1665C11.3808 9.1665 12.5 10.2857 12.5 11.6665M10 9.1665C8.61927 9.1665 7.50002 10.2857 7.50002 11.6665M10 9.1665V8.33313M12.5 11.6665H7.50002M12.5 11.6665H13.3334M7.50002 11.6665H6.66669" stroke="#212121" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -273,7 +273,7 @@
           <h2 class="title">Add Card</h2>
           <span style="width: 24px"></span>
         </div>
-        <form action="" class="add-card-form mt-4">
+        <form action="./start-group-order.html" class="add-card-form mt-4">
           <!-- Card Holder Name: No numbers -->
           <div class="form-group mb-3">
             <img src="assets/images/icons/user.svg" alt="icon" />
@@ -299,7 +299,7 @@
             <div class="col-6">
               <div class="form-group">
                 <img src="assets/images/icons/credit-card.svg" alt="icon" />
-                <input type="text" class="form-control" placeholder="Exp. Date" id="expiry" maxlength="5" />
+                <input type="text" class="form-control" placeholder="Exp. Date XX/XX" id="expiry" maxlength="5" />
               </div>
             </div>
           </div>
@@ -310,38 +310,54 @@
         </form>
 
         <script>
-          // Restrict cardholder name to letters only
-          document.getElementById("cardholder").addEventListener("input", function () {
-            this.value = this.value.replace(/[0-9]/g, "");
-          });
+          // Cardholder name: allow only letters
+          const cardholder = document.getElementById("cardholder");
+          if (cardholder) {
+            cardholder.addEventListener("input", function () {
+              this.value = this.value.replace(/[0-9]/g, "");
+            });
+          }
 
-          // Allow only numbers in card number and CVV
+          // Card number formatting
           const cardInput = document.getElementById("card-number");
-          cardInput.addEventListener("input", function () {
-            // Remove all non-digit characters
-            let digits = this.value.replace(/\D/g, "");
+          if (cardInput) {
+            cardInput.addEventListener("input", function () {
+              let digits = this.value.replace(/\D/g, "").substring(0, 16);
+              this.value = digits.replace(/(.{4})/g, "$1 ").trim();
+            });
+          }
 
-            // Limit to 16 digits
-            digits = digits.substring(0, 16);
+          // CVV digits only
+          const cvv = document.getElementById("cvv");
+          if (cvv) {
+            cvv.addEventListener("input", function () {
+              this.value = this.value.replace(/\D/g, "");
+            });
+          }
 
-            // Group into 4s and join with spaces
-            let formatted = digits.replace(/(.{4})/g, "$1 ").trim();
+          // Expiry date with proper backspace handling
+          const expiry = document.getElementById("expiry");
+          if (expiry) {
+            expiry.addEventListener("input", function (e) {
+              let digits = this.value.replace(/\D/g, "").substring(0, 4);
 
-            this.value = formatted;
-          });
+              // Preserve cursor position
+              const isDeleting = e.inputType === "deleteContentBackward";
 
-          document.getElementById("cvv").addEventListener("input", function () {
-            this.value = this.value.replace(/\D/g, "");
-          });
+              if (isDeleting && this.value.endsWith("/")) {
+                // Handle deletion of slash
+                digits = digits.slice(0, -1);
+              }
 
-          // Format expiry date to MM/YY and restrict to numbers
-          document.getElementById("expiry").addEventListener("input", function (e) {
-            let input = this.value.replace(/\D/g, ""); // Remove non-digits
-            if (input.length > 2) {
-              input = input.slice(0, 2) + "/" + input.slice(2, 4);
-            }
-            this.value = input;
-          });
+              if (digits.length >= 3) {
+                this.value = digits.slice(0, 2) + "/" + digits.slice(2);
+              } else if (digits.length >= 2) {
+                this.value = digits + "/";
+              } else {
+                this.value = digits;
+              }
+            });
+          }
         </script>
       </div>
     </div>

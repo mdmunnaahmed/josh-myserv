@@ -35,7 +35,7 @@
         <p>If desired, you can change your payment method before finalizing your tab when you're ready to leave!</p>
       </div>
 
-      <label class="payment-option">
+      <label class="payment-option" data-modal="applePayModal">
         <label for="applePay">
           <img src="assets/images/icons/apple.svg" alt="icon" />
           <div>
@@ -44,7 +44,7 @@
         </label>
         <input type="radio" name="doneness" id="applePay" />
       </label>
-      <label class="payment-option">
+      <label class="payment-option" data-modal="googlePayModal">
         <label for="gPay">
           <img src="assets/images/icons/google.svg" alt="icon" />
           <div>
@@ -55,7 +55,7 @@
       </label>
       <label class="payment-option" data-modal="addCardModal">
         <label for="masterCard">
-          <img src="assets/images/icons/card.svg" alt="icon" />
+          <img src="assets/images/icons/card.png" alt="icon" class="rounded-3" width="40px" />
           <div>
             <h3 class="title">Credit / Debit Card</h3>
           </div>
@@ -72,6 +72,76 @@
   </div>
 </div>
 
+<!-- Apple Pay Card Modal -->
+<div class="single-page-wrapper custom-modal" id="applePayModal">
+  <div class="single-page-inner pt-3">
+    <div class="title-wrapper align-items-center">
+      <img src="assets/images/icons/apple-pay.svg" alt="logo" />
+      <button class="btn p-0 border-0 modal-close"><img src="assets/images/icons/close-btn.svg" alt="icon" /></button>
+    </div>
+    <div class="apple-card mt-3">
+      <div class="apple-card__left">
+        <img src="assets/images/icons/card2.png" alt="icon" />
+        <h3 class="title">Apple Card</h3>
+      </div>
+      <div class="apple-card__right">
+        <a href="" class="py-1 px-2"><img src="assets/images/icons/arrow-right.svg" alt="icon" /></a>
+      </div>
+    </div>
+    <div class="apple-card style--two mt-3">
+      <div class="apple-card__left">
+        <p>Pay Green Line Restaurant</p>
+        <h3 class="title">$89.60</h3>
+      </div>
+      <div class="apple-card__right">
+        <a href="" class="p-1"><img src="assets/images/icons/arrow-right.svg" alt="icon" /></a>
+      </div>
+    </div>
+    <div class="apple-card style--three">
+      <div class="apple-card__left">
+        <img src="assets/images/icons/side-btn.svg" alt="icon" />
+        <h3 class="title">Confirm with Side Button</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Apple Pay Card Modal -->
+
+<!-- Google Pay Card Modal -->
+<div class="single-page-wrapper custom-modal" id="googlePayModal">
+  <div class="single-page-inner pt-3">
+    <div class="title-wrapper align-items-center">
+      <div class="d-flex gap-1 align-items-center"><img src="assets/images/icons/g.svg" alt="logo" /> <span class="pay">Pay</span></div>
+      <button class="btn p-0 border-0 modal-close"><img src="assets/images/icons/close-btn.svg" alt="icon" /></button>
+    </div>
+    <div class="apple-card mt-3">
+      <div class="apple-card__left">
+        <img src="assets/images/icons/g.svg" alt="icon" />
+        <h3 class="title">Google Card</h3>
+      </div>
+      <div class="apple-card__right">
+        <a href="" class="py-1 px-2"><img src="assets/images/icons/arrow-right.svg" alt="icon" /></a>
+      </div>
+    </div>
+    <div class="apple-card style--two mt-3">
+      <div class="apple-card__left">
+        <p>Pay Green Line Restaurant</p>
+        <h3 class="title">$89.60</h3>
+      </div>
+      <div class="apple-card__right">
+        <a href="" class="p-1"><img src="assets/images/icons/arrow-right.svg" alt="icon" /></a>
+      </div>
+    </div>
+    <div class="apple-card style--three">
+      <div class="apple-card__left">
+        <img src="assets/images/icons/side-btn.svg" alt="icon" />
+        <h3 class="title">Confirm with Side Button</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Google Pay Card Modal -->
+
 <!-- Add Card Modal -->
 <div class="single-page-wrapper custom-modal" id="addCardModal">
   <div class="single-page-inner pt-3 pb-3">
@@ -80,7 +150,7 @@
       <h2 class="title">Add Card</h2>
       <span style="width: 24px"></span>
     </div>
-    <form action="" class="add-card-form mt-4">
+    <form action="./start-group-order.html" class="add-card-form mt-4">
       <!-- Card Holder Name: No numbers -->
       <div class="form-group mb-3">
         <img src="assets/images/icons/user.svg" alt="icon" />
@@ -106,7 +176,7 @@
         <div class="col-6">
           <div class="form-group">
             <img src="assets/images/icons/credit-card.svg" alt="icon" />
-            <input type="text" class="form-control" placeholder="Exp. Date" id="expiry" maxlength="5" />
+            <input type="text" class="form-control" placeholder="Exp. Date XX/XX" id="expiry" maxlength="5" />
           </div>
         </div>
       </div>
@@ -117,38 +187,54 @@
     </form>
 
     <script>
-      // Restrict cardholder name to letters only
-      document.getElementById("cardholder").addEventListener("input", function () {
-        this.value = this.value.replace(/[0-9]/g, "");
-      });
+      // Cardholder name: allow only letters
+      const cardholder = document.getElementById("cardholder");
+      if (cardholder) {
+        cardholder.addEventListener("input", function () {
+          this.value = this.value.replace(/[0-9]/g, "");
+        });
+      }
 
-      // Allow only numbers in card number and CVV
+      // Card number formatting
       const cardInput = document.getElementById("card-number");
-      cardInput.addEventListener("input", function () {
-        // Remove all non-digit characters
-        let digits = this.value.replace(/\D/g, "");
+      if (cardInput) {
+        cardInput.addEventListener("input", function () {
+          let digits = this.value.replace(/\D/g, "").substring(0, 16);
+          this.value = digits.replace(/(.{4})/g, "$1 ").trim();
+        });
+      }
 
-        // Limit to 16 digits
-        digits = digits.substring(0, 16);
+      // CVV digits only
+      const cvv = document.getElementById("cvv");
+      if (cvv) {
+        cvv.addEventListener("input", function () {
+          this.value = this.value.replace(/\D/g, "");
+        });
+      }
 
-        // Group into 4s and join with spaces
-        let formatted = digits.replace(/(.{4})/g, "$1 ").trim();
+      // Expiry date with proper backspace handling
+      const expiry = document.getElementById("expiry");
+      if (expiry) {
+        expiry.addEventListener("input", function (e) {
+          let digits = this.value.replace(/\D/g, "").substring(0, 4);
 
-        this.value = formatted;
-      });
+          // Preserve cursor position
+          const isDeleting = e.inputType === "deleteContentBackward";
 
-      document.getElementById("cvv").addEventListener("input", function () {
-        this.value = this.value.replace(/\D/g, "");
-      });
+          if (isDeleting && this.value.endsWith("/")) {
+            // Handle deletion of slash
+            digits = digits.slice(0, -1);
+          }
 
-      // Format expiry date to MM/YY and restrict to numbers
-      document.getElementById("expiry").addEventListener("input", function (e) {
-        let input = this.value.replace(/\D/g, ""); // Remove non-digits
-        if (input.length > 2) {
-          input = input.slice(0, 2) + "/" + input.slice(2, 4);
-        }
-        this.value = input;
-      });
+          if (digits.length >= 3) {
+            this.value = digits.slice(0, 2) + "/" + digits.slice(2);
+          } else if (digits.length >= 2) {
+            this.value = digits + "/";
+          } else {
+            this.value = digits;
+          }
+        });
+      }
     </script>
   </div>
 </div>

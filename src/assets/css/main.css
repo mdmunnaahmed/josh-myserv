@@ -1392,8 +1392,18 @@ ul.bill li hr {
   flex-direction: column;
 }
 .walkthrough-overlay .btn-wrapper {
-  padding: 24px;
-  padding-bottom: 80px;
+  width: 100%;
+  max-width: 300px;
+  margin-inline: auto;
+  margin-bottom: auto;
+  margin-top: auto;
+  padding-top: 150px;
+}
+.walkthrough-overlay .btn-wrapper .btn {
+  height: auto;
+}
+.walkthrough-overlay .btn-wrapper img {
+  width: 48px;
 }
 .walkthrough-overlay .btn-wrapper .next-walkthrough img {
   transform: rotate(180deg);
@@ -1403,10 +1413,16 @@ ul.bill li hr {
   justify-content: center;
   gap: 6px;
   margin-top: auto;
+  margin-bottom: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 150px;
 }
 .walkthrough-overlay .walkthrough-dots .dot {
-  width: 8px;
-  height: 8px;
+  width: 14px;
+  height: 14px;
   background-color: #717171;
   border-radius: 50%;
 }

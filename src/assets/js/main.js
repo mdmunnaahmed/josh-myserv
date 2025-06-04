@@ -247,3 +247,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// clear previous walkthrough
+function restartWalkthrough(event) {
+  event.preventDefault(); // Stop the default link for a moment
+  localStorage.removeItem("walkthroughShown");
+  // Go to the link after clearing storage
+  window.location.href = event.currentTarget.getAttribute("href");
+}
