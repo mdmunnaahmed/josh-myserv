@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const tableNumber = tableSpan?.textContent.trim() || "a table";
     const restaurantName = "Green Line Restaurant";
 
-    const message = `Your Party Captain has invited you to join ${tableNumber} at ${restaurantName}!`;
+    const message = `Your Party Captain has invited you to join ${tableNumber} at ${restaurantName}! \n Click this link to view the menu, order a bite to eat, and pay your tab!`;
 
     if (navigator.share) {
       try {

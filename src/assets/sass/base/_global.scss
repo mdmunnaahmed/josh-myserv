@@ -10,6 +10,7 @@ body {
   color: var(--c-body);
   line-height: var(--lh-body);
   letter-spacing: 0.2px;
+  overflow: hidden;
 }
 a {
   text-decoration: none;
@@ -37,11 +38,11 @@ ul {
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 98;
   visibility: hidden;
   opacity: 0;
   background-color: #000000cc;
   transition: all 0.3s linear;
+  z-index: 98;
   &.active {
     visibility: visible;
     opacity: 1;

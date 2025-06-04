@@ -39,6 +39,7 @@ body {
   color: var(--c-body);
   line-height: var(--lh-body);
   letter-spacing: 0.2px;
+  overflow: hidden;
 }
 
 a {
@@ -68,11 +69,11 @@ ul {
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 98;
   visibility: hidden;
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.8);
   transition: all 0.3s linear;
+  z-index: 98;
 }
 .overlay.active {
   visibility: visible;
@@ -347,12 +348,12 @@ input[type=radio]:checked::before {
   overflow-y: auto;
   background-color: var(--bg-white);
   width: 275px;
-  z-index: 99;
   display: flex;
   flex-direction: column;
   padding-bottom: 32px;
   transform: translateX(-100%);
   transition: all 0.3s linear;
+  z-index: 99;
 }
 .menu-wrapper.active {
   transform: translateX(0);
