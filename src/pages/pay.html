@@ -65,7 +65,7 @@
         </a>
       </li>
       <li>
-        <a href="./index.html#events">
+        <a href="./index.html">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9.99996 18.3333C14.6023 18.3333 18.3333 14.6024 18.3333 9.99999C18.3333 5.39762 14.6023 1.66666 9.99996 1.66666C5.39759 1.66666 1.66663 5.39762 1.66663 9.99999C1.66663 14.6024 5.39759 18.3333 9.99996 18.3333Z" stroke="#212121" stroke-width="1.5" />
             <path d="M10 6.66666V9.99999L11.6667 11.6667" stroke="#212121" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -138,13 +138,13 @@
       <label for="GLR">
         <img src="assets/images/icons/gift-card.svg" alt="icon" />
         <div>
-          <h3 class="title">Green Line Restaurant</h3>
+          <h3 class="title">Green Line Restaurant Gift Card</h3>
         </div>
       </label>
       <input type="radio" name="doneness" id="GLR" />
     </label>
 
-    <p class="options-title mt-4 mb-3">Summary bill <span class="line"></span></p>
+    <p class="options-title mt-4 mb-3">Bill Summary <span class="line"></span></p>
     <div class="summery-bill-wrapper">
       <ul class="bill">
         <li>
@@ -254,32 +254,75 @@
           <span style="width: 24px"></span>
         </div>
         <form action="" class="add-card-form mt-4">
+          <!-- Card Holder Name: No numbers -->
           <div class="form-group mb-3">
             <img src="assets/images/icons/user.svg" alt="icon" />
-            <input type="text" class="form-control" placeholder="Card Holder Name" />
+            <input type="text" class="form-control" placeholder="Card Holder Name" id="cardholder" />
           </div>
+
+          <!-- Credit Card Number: Digits only -->
           <div class="form-group mb-3">
             <img src="assets/images/icons/credit-card.svg" alt="icon" />
-            <input type="tel" class="form-control" placeholder="Credit Card Number" />
+            <input type="tel" class="form-control" placeholder="Credit Card Number" id="card-number" maxlength="19" />
           </div>
+
           <div class="row gy-3">
+            <!-- CVV: Digits only -->
             <div class="col-6">
               <div class="form-group">
                 <img src="assets/images/icons/square-lock-01.svg" alt="icon" />
-                <input type="tel" class="form-control" placeholder="CVV" />
+                <input type="tel" class="form-control" placeholder="CVV" id="cvv" maxlength="4" />
               </div>
             </div>
+
+            <!-- Expiration Date: Format MM/YY -->
             <div class="col-6">
               <div class="form-group">
                 <img src="assets/images/icons/credit-card.svg" alt="icon" />
-                <input type="text" class="form-control" placeholder="Exp. Date" />
+                <input type="text" class="form-control" placeholder="Exp. Date" id="expiry" maxlength="5" />
               </div>
             </div>
           </div>
+
           <div class="d-flex flex-column gap-2 mt-4 pt-3">
-            <button type="submit" class="btn btn-md btn-primary">Confirm</button>
+            <a href="./post-payment-screen.html" class="btn btn-md btn-primary">Confirm</a>
           </div>
         </form>
+
+        <script>
+          // Restrict cardholder name to letters only
+          document.getElementById("cardholder").addEventListener("input", function () {
+            this.value = this.value.replace(/[0-9]/g, "");
+          });
+
+          // Allow only numbers in card number and CVV
+          const cardInput = document.getElementById("card-number");
+          cardInput.addEventListener("input", function () {
+            // Remove all non-digit characters
+            let digits = this.value.replace(/\D/g, "");
+
+            // Limit to 16 digits
+            digits = digits.substring(0, 16);
+
+            // Group into 4s and join with spaces
+            let formatted = digits.replace(/(.{4})/g, "$1 ").trim();
+
+            this.value = formatted;
+          });
+
+          document.getElementById("cvv").addEventListener("input", function () {
+            this.value = this.value.replace(/\D/g, "");
+          });
+
+          // Format expiry date to MM/YY and restrict to numbers
+          document.getElementById("expiry").addEventListener("input", function (e) {
+            let input = this.value.replace(/\D/g, ""); // Remove non-digits
+            if (input.length > 2) {
+              input = input.slice(0, 2) + "/" + input.slice(2, 4);
+            }
+            this.value = input;
+          });
+        </script>
       </div>
     </div>
     <!-- Add Card Modal -->
@@ -288,7 +331,7 @@
 
 <div class="container mt-auto bottom-button-wrapper">
   <div class="d-flex flex-column gap-2">
-    <button type="button" class="btn btn-md btn-primary payment-btn">Pay With Apple Pay</button>
+    <a href="./post-payment-screen.html" type="button" class="btn btn-md btn-primary payment-btn">Pay With Apple Pay</a>
     <p class="fw-medium powered-by text-center mb-0 mt-2">Powered securely by MyServ</p>
     <p class="term-and-policy text-center m-0">Using the <span class="fw-medium">MyServ</span> app means you agree to our <a href="">terms of use</a> and how we handle your personal data, as detailed in our <a href="">privacy policy</a>. The restaurant you're using the app for will receive the information we collect.</p>
   </div>

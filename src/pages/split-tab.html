@@ -65,7 +65,7 @@
         </a>
       </li>
       <li>
-        <a href="./index.html#events">
+        <a href="./index.html">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9.99996 18.3333C14.6023 18.3333 18.3333 14.6024 18.3333 9.99999C18.3333 5.39762 14.6023 1.66666 9.99996 1.66666C5.39759 1.66666 1.66663 5.39762 1.66663 9.99999C1.66663 14.6024 5.39759 18.3333 9.99996 18.3333Z" stroke="#212121" stroke-width="1.5" />
             <path d="M10 6.66666V9.99999L11.6667 11.6667" stroke="#212121" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -111,27 +111,27 @@
       <div class="payout-items">
         <div class="payout-single-item">
           <div class="payout-single-item__left">
-            <a href="" class="item-name">Chicken Caesar Salad</a>
+            <a href="" class="item-name">Deluxe Cheeseburger</a>
             <span class="qty">Table Quantity: 1</span>
           </div>
           <div class="counter">
             <button class="btn p-0 border-0 minus2"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
-            <input type="text" class="value" value="0" readonly />
+            <input type="text" class="value" value="1" readonly />
             <button class="btn p-0 border-0 plus2"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
           </div>
-          <span class="item-price">-</span>
+          <span class="item-price" data-price="16">16</span>
         </div>
         <div class="payout-single-item">
           <div class="payout-single-item__left">
-            <a href="" class="item-name">Chocolate Lava Cake</a>
-            <span class="qty">Table Quantity: 1</span>
+            <a href="" class="item-name">Chicken Caesar Salad</a>
+            <span class="qty">Table Quantity: 0</span>
           </div>
           <div class="counter">
             <button class="btn p-0 border-0 minus2"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
             <input type="text" class="value" value="0" readonly />
             <button class="btn p-0 border-0 plus2"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
           </div>
-          <span class="item-price">-</span>
+          <span class="item-price" data-price="15">-</span>
         </div>
         <div class="payout-single-item">
           <div class="payout-single-item__left">
@@ -143,7 +143,7 @@
             <input type="text" class="value" value="1" readonly />
             <button class="btn p-0 border-0 plus2"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
           </div>
-          <span class="item-price">$10.00</span>
+          <span class="item-price" data-price="10">$10.00</span>
         </div>
         <div class="payout-single-item">
           <div class="payout-single-item__left">
@@ -155,7 +155,19 @@
             <input type="text" class="value" value="1" readonly />
             <button class="btn p-0 border-0 plus2"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
           </div>
-          <span class="item-price">$6.00</span>
+          <span class="item-price" data-price="6">$6.00</span>
+        </div>
+        <div class="payout-single-item">
+          <div class="payout-single-item__left">
+            <a href="" class="item-name">Chocolate Lava Cake</a>
+            <span class="qty">Table Quantity: 0</span>
+          </div>
+          <div class="counter">
+            <button class="btn p-0 border-0 minus2"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
+            <input type="text" class="value" value="0" readonly />
+            <button class="btn p-0 border-0 plus2"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
+          </div>
+          <span class="item-price" data-price="8">-</span>
         </div>
         <div class="payout-single-item">
           <div class="payout-single-item__left">
@@ -167,19 +179,7 @@
             <input type="text" class="value" value="4" readonly />
             <button class="btn p-0 border-0 plus2"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
           </div>
-          <span class="item-price">$8</span>
-        </div>
-        <div class="payout-single-item">
-          <div class="payout-single-item__left">
-            <a href="" class="item-name">Deluxe Cheeseburger</a>
-            <span class="qty">Table Quantity: 1</span>
-          </div>
-          <div class="counter">
-            <button class="btn p-0 border-0 minus2"><img width="18" src="assets/images/icons/minus.svg" alt="icon" /></button>
-            <input type="text" class="value" value="1" readonly />
-            <button class="btn p-0 border-0 plus2"><img width="18" src="assets/images/icons/plus.svg" alt="icon" /></button>
-          </div>
-          <span class="item-price">16</span>
+          <span class="item-price" data-price="8">$8</span>
         </div>
       </div>
     </div>
@@ -187,7 +187,7 @@
 </main>
 
 <div class="container mt-auto bottom-button-wrapper">
-  <a href="./pay.html" class="btn btn-md btn-primary pay-btn w-100">
+  <a href="./tip.html" class="btn btn-md btn-primary pay-btn w-100">
     Pay
     <span>$64.00</span>
   </a>
@@ -203,39 +203,35 @@
     }
 
     function updateButtons(qty, tableQty, minusBtn, plusBtn) {
-      if (qty <= 0) {
-        minusBtn.classList.add("inactive");
-      } else {
-        minusBtn.classList.remove("inactive");
-      }
-
-      if (qty >= tableQty) {
-        plusBtn.classList.add("inactive");
-      } else {
-        plusBtn.classList.remove("inactive");
-      }
+      minusBtn.classList.toggle("inactive", qty <= 0);
+      plusBtn.classList.toggle("inactive", qty >= tableQty);
     }
 
     function updateTotal() {
       let total = 0;
+
       items.forEach((item) => {
         const qtyInput = item.querySelector(".value");
         const itemPriceSpan = item.querySelector(".item-price");
-        const tableQty = parseInt(item.querySelector(".qty").textContent.replace(/\D/g, ""));
-        const unitPrice = parsePrice(itemPriceSpan.dataset.unitPrice || itemPriceSpan.textContent);
-        const qty = parseInt(qtyInput.value);
-
-        const validQty = Math.min(qty, tableQty);
-        const newPrice = validQty > 0 ? `$${(unitPrice * validQty).toFixed(2)}` : "-";
-        itemPriceSpan.textContent = newPrice;
-
-        if (validQty > 0) total += unitPrice * validQty;
-
-        // Update button states
         const minusBtn = item.querySelector(".minus2");
         const plusBtn = item.querySelector(".plus2");
+
+        const qty = parseInt(qtyInput.value);
+        const tableQty = parseInt(item.querySelector(".qty").textContent.replace(/\D/g, ""));
+        const unitPrice = parseFloat(itemPriceSpan.dataset.price);
+
+        const validQty = Math.min(qty, tableQty);
+        if (validQty > 0) {
+          const newPrice = (unitPrice * validQty).toFixed(2);
+          itemPriceSpan.textContent = `$${newPrice}`;
+          total += unitPrice * validQty;
+        } else {
+          itemPriceSpan.textContent = "-";
+        }
+
         updateButtons(validQty, tableQty, minusBtn, plusBtn);
       });
+
       payBtn.textContent = `$${total.toFixed(2)}`;
     }
 
@@ -243,13 +239,7 @@
       const minusBtn = item.querySelector(".minus2");
       const plusBtn = item.querySelector(".plus2");
       const qtyInput = item.querySelector(".value");
-      const itemPriceSpan = item.querySelector(".item-price");
-
       const tableQty = parseInt(item.querySelector(".qty").textContent.replace(/\D/g, ""));
-      const unitPrice = parsePrice(itemPriceSpan.textContent);
-      if (!itemPriceSpan.dataset.unitPrice) {
-        itemPriceSpan.dataset.unitPrice = unitPrice;
-      }
 
       plusBtn?.addEventListener("click", () => {
         let qty = parseInt(qtyInput.value);
@@ -268,7 +258,7 @@
       });
     });
 
-    updateTotal(); // Initial setup
+    updateTotal();
   });
 </script>
 

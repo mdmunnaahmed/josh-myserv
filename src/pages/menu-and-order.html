@@ -65,7 +65,7 @@
         </a>
       </li>
       <li>
-        <a href="./index.html#events">
+        <a href="./index.html">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9.99996 18.3333C14.6023 18.3333 18.3333 14.6024 18.3333 9.99999C18.3333 5.39762 14.6023 1.66666 9.99996 1.66666C5.39759 1.66666 1.66663 5.39762 1.66663 9.99999C1.66663 14.6024 5.39759 18.3333 9.99996 18.3333Z" stroke="#212121" stroke-width="1.5" />
             <path d="M10 6.66666V9.99999L11.6667 11.6667" stroke="#212121" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -132,15 +132,15 @@
           <div class="product-item">
             <div class="product-item__thumb">
               <a href="./item-detail.html">
-                <img src="assets/images/thumbs/img2.png" alt="thumb" />
+                <img src="assets/images/thumbs/img1.png" alt="thumb" />
               </a>
             </div>
             <div class="product-item__content">
-              <h2 class="title"><a href="./item-detail.html">Deluxe Cheeseburger</a></h2>
+              <h2 class="title"><a href="./item-detail.html">Chicken Caesar Salad</a></h2>
             </div>
             <div class="price-wrapper">
-              <span class="price">$14.00</span>
-              <a href="./item-detail.html" class="btn btn-icon btn-success btn-sm">
+              <span class="price">$15.00</span>
+              <a href="./item-detail.html" class="btn btn-icon btn-outline-success btn-sm">
                 <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
                 </svg>
@@ -150,15 +150,15 @@
           <div class="product-item">
             <div class="product-item__thumb">
               <a href="./item-detail.html">
-                <img src="assets/images/thumbs/img1.png" alt="thumb" />
+                <img src="assets/images/thumbs/img2.png" alt="thumb" />
               </a>
             </div>
             <div class="product-item__content">
-              <h2 class="title"><a href="./item-detail.html">Chicken Caesar Salad</a></h2>
+              <h2 class="title"><a href="./item-detail.html">Deluxe Cheeseburger</a></h2>
             </div>
             <div class="price-wrapper">
-              <span class="price">$15</span>
-              <a href="./item-detail.html" class="btn btn-icon btn-outline-success btn-sm">
+              <span class="price">$14.00</span>
+              <a href="./item-detail.html" class="btn btn-icon btn-success btn-sm">
                 <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
                 </svg>
@@ -211,7 +211,7 @@
               <h2 class="title"><a href="./item-detail.html"> Chicken Wings</a></h2>
             </div>
             <div class="price-wrapper">
-              <span class="price">$19</span>
+              <span class="price">$9.00</span>
               <a href="./item-detail.html" class="btn btn-icon btn-outline-success btn-sm">
                 <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
@@ -229,7 +229,7 @@
               <h2 class="title"><a href="./item-detail.html">Chicken BBQ</a></h2>
             </div>
             <div class="price-wrapper">
-              <span class="price">$12.95</span>
+              <span class="price">$14.00</span>
               <a href="./item-detail.html" class="btn btn-icon btn-success btn-sm">
                 <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7.5 4H4.5M4.5 4H1.5M4.5 4V1M4.5 4V7" stroke-width="1.5" stroke-linecap="round" />
@@ -240,7 +240,17 @@
         </div>
       </div>
       <div class="tab-pane fade" id="Starters">
-        <div class="walkthrough-overlay" id="walkthrough" style="display: none"></div>
+        <div class="walkthrough-overlay" id="walkthrough" style="display: none">
+          <ul class="walkthrough-dots">
+            <li class="dot"></li>
+            <li class="dot"></li>
+            <li class="dot"></li>
+          </ul>
+          <div class="d-flex justify-content-between btn-wrapper">
+            <button class="btn py-2 px-3 prev-walkthrough"><img src="assets/images/icons/arrow-left.svg" alt="icon" /></button>
+            <button class="btn py-2 px-3 next-walkthrough"><img src="assets/images/icons/arrow-left.svg" alt="icon" /></button>
+          </div>
+        </div>
         <div class="products-wrapper style--two">
           <div class="product-item style--two">
             <div class="product-item__content">
@@ -345,22 +355,70 @@
     if (!localStorage.getItem("walkthroughShown")) {
       const overlay = document.getElementById("walkthrough");
       const bubbles = [document.querySelector(".tooltip-bubble1"), document.querySelector(".tooltip-bubble2"), document.querySelector(".tooltip-bubble3")];
+      const dots = document.querySelectorAll(".walkthrough-dots .dot");
+      const prevBtn = document.querySelector(".prev-walkthrough");
+      const nextBtn = document.querySelector(".next-walkthrough");
+
       let current = 0;
 
-      overlay.style.display = "block";
-      bubbles[current].style.display = "block";
+      function updateStep() {
+        // Hide all bubbles and deactivate all dots
+        bubbles.forEach((b) => (b.style.display = "none"));
+        dots.forEach((d) => d.classList.remove("active"));
+
+        // Show current
+        if (bubbles[current]) {
+          bubbles[current].style.display = "block";
+          dots[current].classList.add("active");
+        }
+
+        // Update Prev button visibility
+        prevBtn.style.visibility = current === 0 ? "hidden" : "visible";
+
+        // Update Next button (arrow or Finish text)
+        if (current === bubbles.length - 1) {
+          // nextBtn.innerHTML = "Finish";
+          nextBtn.innerHTML = `<img src="assets/images/icons/arrow-left.svg" alt="icon" />`;
+        } else {
+          nextBtn.innerHTML = `<img src="assets/images/icons/arrow-left.svg" alt="icon" />`;
+        }
+      }
+
+      function finishWalkthrough() {
+        overlay.style.display = "none";
+        bubbles[bubbles.length - 1].style.display = "none";
+        document.querySelector(".has-walkthrough").classList.remove("active-now");
+        localStorage.setItem("walkthroughShown", "true");
+      }
+
+      overlay.style.display = "flex";
       document.querySelector(".has-walkthrough").classList.add("active-now");
+      updateStep();
+
+      nextBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (current < bubbles.length - 1) {
+          current++;
+          updateStep();
+        } else {
+          finishWalkthrough();
+        }
+      });
+
+      prevBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (current > 0) {
+          current--;
+          updateStep();
+        }
+      });
 
       overlay.addEventListener("click", () => {
-        bubbles[current].style.display = "none";
-        current++;
-
-        if (current < bubbles.length) {
-          bubbles[current].style.display = "block";
+        if (current < bubbles.length - 1) {
+          current++;
+          updateStep();
         } else {
-          overlay.style.display = "none";
-          document.querySelector(".has-walkthrough").classList.remove("active-now");
-          localStorage.setItem("walkthroughShown", "true");
+          finishWalkthrough();
         }
       });
     }

@@ -178,7 +178,7 @@ document.querySelectorAll(".text-shift-counter").forEach((counter) => {
   const checkbox = counter.closest(".selection-item")?.querySelector(".form-check-input");
   checkbox?.addEventListener("change", updateDisplay);
 
-  updateDisplay(); // Initial
+  updateDisplay(); // Initial`
 });
 
 // update cart price
@@ -226,12 +226,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const shareBtn = document.querySelector(".share-btn");
 
   shareBtn?.addEventListener("click", async () => {
+    const tableSpan = document.querySelector(".table-info span");
+    const tableNumber = tableSpan?.textContent.trim() || "a table";
+    const restaurantName = "Green Line Restaurant";
+
+    const message = `Your Party Captain has invited you to join ${tableNumber} at ${restaurantName}!`;
+
     if (navigator.share) {
       try {
         await navigator.share({
           title: "Group Order",
-          text: "Join my group order!",
-          url: window.location.href, // or your custom URL
+          text: message,
+          url: window.location.href,
         });
       } catch (err) {
         console.error("Share canceled or failed:", err);

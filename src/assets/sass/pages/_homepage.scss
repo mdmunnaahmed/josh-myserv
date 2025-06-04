@@ -915,6 +915,32 @@ ul.bill {
   height: 100dvh;
   background-color: #000000b2;
   z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  .btn-wrapper {
+    padding: 24px;
+    padding-bottom: 80px;
+    .next-walkthrough {
+      img {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .walkthrough-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: auto;
+    .dot {
+      width: 8px;
+      height: 8px;
+      background-color: #717171;
+      border-radius: 50%;
+      &.active {
+        background-color: #2DA0ED;
+      }
+    }
+  }
 }
 
 .tooltip-bubble {
