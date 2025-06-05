@@ -30,8 +30,12 @@
   transform: translateX(-100%);
   transition: all 0.3s linear;
   z-index: 99;
+  opacity: 0;
+  visibility: hidden;
   &.active {
     transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
   }
 
   .logo-area {

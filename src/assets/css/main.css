@@ -354,9 +354,13 @@ input[type=radio]:checked::before {
   transform: translateX(-100%);
   transition: all 0.3s linear;
   z-index: 99;
+  opacity: 0;
+  visibility: hidden;
 }
 .menu-wrapper.active {
   transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
 }
 .menu-wrapper .logo-area {
   background: url("../images/icons/mask.png");

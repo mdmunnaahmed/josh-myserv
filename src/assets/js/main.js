@@ -250,8 +250,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // clear previous walkthrough
 function restartWalkthrough(event) {
-  event.preventDefault(); // Stop the default link for a moment
+  event.preventDefault(); // Stop default behavior
   localStorage.removeItem("walkthroughShown");
-  // Go to the link after clearing storage
-  window.location.href = event.currentTarget.getAttribute("href");
+
+  const targetHref = event.currentTarget.getAttribute("href");
+
+  if (window.location.pathname === new URL(targetHref, window.location.href).pathname) {
+    // If it's the same page, force reload
+    window.location.reload();
+  } else {
+    // Navigate to a different page
+    window.location.href = targetHref;
+  }
 }

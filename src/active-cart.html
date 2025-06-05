@@ -305,18 +305,23 @@
     });
   });
 </script>
+
 <!-- active-cart.html -->
 <script>
-  const placeOrderBtn = document.querySelector(".add-to-cart-btn");
-  placeOrderBtn?.addEventListener("click", () => {
-    const amountText = placeOrderBtn.querySelector("span")?.textContent || "$0";
+  // get the cart price
+  document.addEventListener("DOMContentLoaded", () => {
+    const placeOrderBtn = document.querySelector(".add-to-cart-btn");
+    const amountText = placeOrderBtn?.querySelector("span")?.textContent || "$0";
     const amount = parseFloat(amountText.replace("$", "")) || 0;
 
-    // Save to localStorage
+    // Save to localStorage immediately
     localStorage.setItem("cartAmount", amount);
 
-    // Redirect to the tip page
-    window.location.href = "tip.html";
+    // (optional) You can still keep the click event if needed:
+    placeOrderBtn?.addEventListener("click", () => {
+      // Redirect only on click
+      window.location.href = "tip.html";
+    });
   });
 </script>
 
